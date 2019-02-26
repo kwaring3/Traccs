@@ -1,14 +1,14 @@
 //
-//  AdminCausesDetailViewController.swift
+//  UserDonationsDetailViewController.swift
 //  Traccs
 //
-//  Created by Kevin Waring on 2/11/19.
+//  Created by Kevin Waring on 2/14/19.
 //  Copyright © 2019 Kevin Waring. All rights reserved.
 //
 
 import UIKit
 
-class AdminCausesDetailViewController: UIViewController {
+class UserDonationsDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

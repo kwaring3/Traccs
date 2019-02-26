@@ -8,46 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		1F002965220CD884002BE5A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002964220CD884002BE5A3 /* AppDelegate.swift */; };
-		1F002967220CD884002BE5A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F002966220CD884002BE5A3 /* ViewController.swift */; };
 		1F00296A220CD884002BE5A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F002968220CD884002BE5A3 /* Main.storyboard */; };
 		1F00296C220CD885002BE5A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F00296B220CD885002BE5A3 /* Assets.xcassets */; };
 		1F00296F220CD885002BE5A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F00296D220CD885002BE5A3 /* LaunchScreen.storyboard */; };
+		1F0ACD622225D1EF00282C97 /* AdminActiveCausesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F0ACD612225D1EF00282C97 /* AdminActiveCausesCollectionViewCell.swift */; };
 		1F39D70E221223D80089F641 /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D70D221223D80089F641 /* UserLoginViewController.swift */; };
 		1F39D710221224040089F641 /* AdminLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D70F221224040089F641 /* AdminLoginViewController.swift */; };
-		1F39D713221225130089F641 /* DonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D712221225130089F641 /* DonationsViewController.swift */; };
-		1F39D715221225360089F641 /* CausesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D714221225360089F641 /* CausesViewController.swift */; };
-		1F39D717221225470089F641 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D716221225470089F641 /* ServicesViewController.swift */; };
-		1F39D719221225AA0089F641 /* QuestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D718221225AA0089F641 /* QuestionsViewController.swift */; };
-		1F39D71C221226040089F641 /* AdminCausesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D71B221226040089F641 /* AdminCausesViewController.swift */; };
 		1F39D71E221226330089F641 /* AdminMetricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D71D221226330089F641 /* AdminMetricsViewController.swift */; };
-		1F39D72122122C180089F641 /* DonationsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D72022122C180089F641 /* DonationsDetailViewController.swift */; };
-		1F39D72322122C330089F641 /* CausesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D72222122C330089F641 /* CausesDetailViewController.swift */; };
-		1F39D72522122C420089F641 /* ServicesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D72422122C420089F641 /* ServicesDetailViewController.swift */; };
-		1F39D72722122C700089F641 /* AdminCausesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D72622122C700089F641 /* AdminCausesDetailViewController.swift */; };
-		1F39D72922122C9B0089F641 /* AdminMetricDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D72822122C9B0089F641 /* AdminMetricDetailViewController.swift */; };
+		1F39D74E221614D40089F641 /* UserDonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D74D221614D40089F641 /* UserDonationsViewController.swift */; };
+		1F39D750221614EC0089F641 /* UserCausesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D74F221614EC0089F641 /* UserCausesViewController.swift */; };
+		1F39D752221615640089F641 /* AdminActiveCausesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D751221615640089F641 /* AdminActiveCausesViewController.swift */; };
+		1F39D754221615850089F641 /* AdminCreateCauseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D753221615850089F641 /* AdminCreateCauseViewController.swift */; };
+		1F39D758221616000089F641 /* AdminActiveCausesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D757221616000089F641 /* AdminActiveCausesDetailViewController.swift */; };
+		1F39D75A221619410089F641 /* UserCausesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D759221619410089F641 /* UserCausesDetailViewController.swift */; };
+		1F39D75C221619650089F641 /* UserDonationsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D75B221619650089F641 /* UserDonationsDetailViewController.swift */; };
+		1FED610022248337000492B9 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED60FF22248337000492B9 /* Create.swift */; };
+		1FED610322248574000492B9 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED610222248574000492B9 /* DataPersistenceManager.swift */; };
+		1FED6105222486EC000492B9 /* DataPersistenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED6104222486EC000492B9 /* DataPersistenceModel.swift */; };
+		1FED610822248FCF000492B9 /* Date + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED610722248FCF000492B9 /* Date + Extensions.swift */; };
+		1FED610A22248FF7000492B9 /* String + DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED610922248FF7000492B9 /* String + DateExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1F002961220CD884002BE5A3 /* Traccs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traccs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F002964220CD884002BE5A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1F002966220CD884002BE5A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1F002969220CD884002BE5A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1F00296B220CD885002BE5A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1F00296E220CD885002BE5A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1F002970220CD885002BE5A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1F0ACD612225D1EF00282C97 /* AdminActiveCausesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminActiveCausesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1F39D70D221223D80089F641 /* UserLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		1F39D70F221224040089F641 /* AdminLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginViewController.swift; sourceTree = "<group>"; };
-		1F39D712221225130089F641 /* DonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsViewController.swift; sourceTree = "<group>"; };
-		1F39D714221225360089F641 /* CausesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CausesViewController.swift; sourceTree = "<group>"; };
-		1F39D716221225470089F641 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
-		1F39D718221225AA0089F641 /* QuestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionsViewController.swift; sourceTree = "<group>"; };
-		1F39D71B221226040089F641 /* AdminCausesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCausesViewController.swift; sourceTree = "<group>"; };
 		1F39D71D221226330089F641 /* AdminMetricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMetricsViewController.swift; sourceTree = "<group>"; };
-		1F39D72022122C180089F641 /* DonationsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationsDetailViewController.swift; sourceTree = "<group>"; };
-		1F39D72222122C330089F641 /* CausesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CausesDetailViewController.swift; sourceTree = "<group>"; };
-		1F39D72422122C420089F641 /* ServicesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesDetailViewController.swift; sourceTree = "<group>"; };
-		1F39D72622122C700089F641 /* AdminCausesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCausesDetailViewController.swift; sourceTree = "<group>"; };
-		1F39D72822122C9B0089F641 /* AdminMetricDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMetricDetailViewController.swift; sourceTree = "<group>"; };
+		1F39D74D221614D40089F641 /* UserDonationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDonationsViewController.swift; sourceTree = "<group>"; };
+		1F39D74F221614EC0089F641 /* UserCausesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCausesViewController.swift; sourceTree = "<group>"; };
+		1F39D751221615640089F641 /* AdminActiveCausesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminActiveCausesViewController.swift; sourceTree = "<group>"; };
+		1F39D753221615850089F641 /* AdminCreateCauseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCreateCauseViewController.swift; sourceTree = "<group>"; };
+		1F39D757221616000089F641 /* AdminActiveCausesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminActiveCausesDetailViewController.swift; sourceTree = "<group>"; };
+		1F39D759221619410089F641 /* UserCausesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCausesDetailViewController.swift; sourceTree = "<group>"; };
+		1F39D75B221619650089F641 /* UserDonationsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDonationsDetailViewController.swift; sourceTree = "<group>"; };
+		1FED60FF22248337000492B9 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
+		1FED610222248574000492B9 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
+		1FED6104222486EC000492B9 /* DataPersistenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceModel.swift; sourceTree = "<group>"; };
+		1FED610722248FCF000492B9 /* Date + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extensions.swift"; sourceTree = "<group>"; };
+		1FED610922248FF7000492B9 /* String + DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + DateExtensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +84,11 @@
 		1F002963220CD884002BE5A3 /* Traccs */ = {
 			isa = PBXGroup;
 			children = (
-				1F002964220CD884002BE5A3 /* AppDelegate.swift */,
-				1F002966220CD884002BE5A3 /* ViewController.swift */,
 				1F002968220CD884002BE5A3 /* Main.storyboard */,
+				1FED610B2224909A000492B9 /* File Managers and Date Files */,
+				1FED61062224884F000492B9 /* Supporting Files */,
+				1FED6101222484FF000492B9 /* Model */,
 				1F39D711221224850089F641 /* Controllers */,
-				1F00296B220CD885002BE5A3 /* Assets.xcassets */,
-				1F00296D220CD885002BE5A3 /* LaunchScreen.storyboard */,
 				1F002970220CD885002BE5A3 /* Info.plist */,
 			);
 			path = Traccs;
@@ -94,6 +97,7 @@
 		1F39D711221224850089F641 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1F0ACD612225D1EF00282C97 /* AdminActiveCausesCollectionViewCell.swift */,
 				1F39D71F221228110089F641 /* Admin */,
 				1F39D71A221225BB0089F641 /* User */,
 			);
@@ -104,13 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				1F39D70D221223D80089F641 /* UserLoginViewController.swift */,
-				1F39D712221225130089F641 /* DonationsViewController.swift */,
-				1F39D72022122C180089F641 /* DonationsDetailViewController.swift */,
-				1F39D714221225360089F641 /* CausesViewController.swift */,
-				1F39D72222122C330089F641 /* CausesDetailViewController.swift */,
-				1F39D716221225470089F641 /* ServicesViewController.swift */,
-				1F39D72422122C420089F641 /* ServicesDetailViewController.swift */,
-				1F39D718221225AA0089F641 /* QuestionsViewController.swift */,
+				1F39D74D221614D40089F641 /* UserDonationsViewController.swift */,
+				1F39D75B221619650089F641 /* UserDonationsDetailViewController.swift */,
+				1F39D74F221614EC0089F641 /* UserCausesViewController.swift */,
+				1F39D759221619410089F641 /* UserCausesDetailViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -119,12 +120,41 @@
 			isa = PBXGroup;
 			children = (
 				1F39D70F221224040089F641 /* AdminLoginViewController.swift */,
-				1F39D71B221226040089F641 /* AdminCausesViewController.swift */,
-				1F39D72622122C700089F641 /* AdminCausesDetailViewController.swift */,
+				1F39D751221615640089F641 /* AdminActiveCausesViewController.swift */,
+				1F39D757221616000089F641 /* AdminActiveCausesDetailViewController.swift */,
+				1F39D753221615850089F641 /* AdminCreateCauseViewController.swift */,
 				1F39D71D221226330089F641 /* AdminMetricsViewController.swift */,
-				1F39D72822122C9B0089F641 /* AdminMetricDetailViewController.swift */,
 			);
 			path = Admin;
+			sourceTree = "<group>";
+		};
+		1FED6101222484FF000492B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1FED60FF22248337000492B9 /* Create.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1FED61062224884F000492B9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F002964220CD884002BE5A3 /* AppDelegate.swift */,
+				1F00296B220CD885002BE5A3 /* Assets.xcassets */,
+				1F00296D220CD885002BE5A3 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1FED610B2224909A000492B9 /* File Managers and Date Files */ = {
+			isa = PBXGroup;
+			children = (
+				1FED610222248574000492B9 /* DataPersistenceManager.swift */,
+				1FED6104222486EC000492B9 /* DataPersistenceModel.swift */,
+				1FED610722248FCF000492B9 /* Date + Extensions.swift */,
+				1FED610922248FF7000492B9 /* String + DateExtensions.swift */,
+			);
+			path = "File Managers and Date Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,21 +228,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F39D715221225360089F641 /* CausesViewController.swift in Sources */,
-				1F39D717221225470089F641 /* ServicesViewController.swift in Sources */,
-				1F39D72322122C330089F641 /* CausesDetailViewController.swift in Sources */,
+				1F39D75A221619410089F641 /* UserCausesDetailViewController.swift in Sources */,
+				1FED610822248FCF000492B9 /* Date + Extensions.swift in Sources */,
 				1F39D71E221226330089F641 /* AdminMetricsViewController.swift in Sources */,
-				1F39D72122122C180089F641 /* DonationsDetailViewController.swift in Sources */,
-				1F39D72522122C420089F641 /* ServicesDetailViewController.swift in Sources */,
-				1F39D719221225AA0089F641 /* QuestionsViewController.swift in Sources */,
+				1F39D752221615640089F641 /* AdminActiveCausesViewController.swift in Sources */,
+				1FED610322248574000492B9 /* DataPersistenceManager.swift in Sources */,
+				1F39D750221614EC0089F641 /* UserCausesViewController.swift in Sources */,
 				1F39D70E221223D80089F641 /* UserLoginViewController.swift in Sources */,
-				1F39D71C221226040089F641 /* AdminCausesViewController.swift in Sources */,
-				1F002967220CD884002BE5A3 /* ViewController.swift in Sources */,
-				1F39D713221225130089F641 /* DonationsViewController.swift in Sources */,
-				1F39D72722122C700089F641 /* AdminCausesDetailViewController.swift in Sources */,
+				1F39D758221616000089F641 /* AdminActiveCausesDetailViewController.swift in Sources */,
+				1FED610A22248FF7000492B9 /* String + DateExtensions.swift in Sources */,
 				1F39D710221224040089F641 /* AdminLoginViewController.swift in Sources */,
+				1F39D74E221614D40089F641 /* UserDonationsViewController.swift in Sources */,
 				1F002965220CD884002BE5A3 /* AppDelegate.swift in Sources */,
-				1F39D72922122C9B0089F641 /* AdminMetricDetailViewController.swift in Sources */,
+				1F39D75C221619650089F641 /* UserDonationsDetailViewController.swift in Sources */,
+				1F0ACD622225D1EF00282C97 /* AdminActiveCausesCollectionViewCell.swift in Sources */,
+				1FED6105222486EC000492B9 /* DataPersistenceModel.swift in Sources */,
+				1F39D754221615850089F641 /* AdminCreateCauseViewController.swift in Sources */,
+				1FED610022248337000492B9 /* Create.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
