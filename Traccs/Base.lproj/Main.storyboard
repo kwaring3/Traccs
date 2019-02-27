@@ -416,7 +416,7 @@
         <!--Causes-->
         <scene sceneID="iKW-Hf-zjh">
             <objects>
-                <viewController id="8v7-xI-Cxg" customClass="CausesViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userCausesViewController" id="8v7-xI-Cxg" customClass="UserCausesViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Wk-VN-7jW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,7 +431,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MOV-xp-Lgd">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="userCauseCell" id="MOV-xp-Lgd" customClass="UserCausesCollectionViewCell" customModule="Traccs" customModuleProvider="target">
                                         <rect key="frame" x="55" y="0.0" width="304" height="213"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -460,7 +460,8 @@
                                             <constraint firstItem="NFC-m1-sOW" firstAttribute="leading" secondItem="MOV-xp-Lgd" secondAttribute="leadingMargin" constant="4" id="vHK-5V-a1c"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="Zdq-9O-MHX" kind="show" id="d9x-hE-KG5"/>
+                                            <outlet property="userCausesImage" destination="NFC-m1-sOW" id="Vei-YN-E46"/>
+                                            <outlet property="userCausesLabel" destination="NIe-ug-Z93" id="Ah4-f3-3GD"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -476,6 +477,9 @@
                         <viewLayoutGuide key="safeArea" id="HZ6-Ow-tBI"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Causes" id="xDi-9c-pTi"/>
+                    <connections>
+                        <outlet property="userCauseCollectionView" destination="jX8-D7-0UY" id="lgq-lJ-g7v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSz-nn-xMg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -600,7 +604,6 @@
                                             <outlet property="activeImageView" destination="V0y-yo-Xqq" id="mdE-wr-MVL"/>
                                             <outlet property="button" destination="zWB-aI-Iea" id="5ft-kQ-jcG"/>
                                             <outlet property="titleLabel" destination="MlC-l1-K0f" id="WgJ-4f-nkg"/>
-                                            <segue destination="Szr-5V-ANv" kind="show" id="4yi-Sl-ijh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -696,25 +699,25 @@
             </objects>
             <point key="canvasLocation" x="6279.7101449275369" y="435.9375"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin Active Causes Detail View Controller-->
         <scene sceneID="abd-2w-bvn">
             <objects>
-                <viewController id="Szr-5V-ANv" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="adminActiveDetail" id="Szr-5V-ANv" customClass="AdminActiveCausesDetailViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V2M-3Q-UGs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-image-2" translatesAutoresizingMaskIntoConstraints="NO" id="AhJ-Pk-Ize">
-                                <rect key="frame" x="37" y="132" width="341" height="216"/>
+                                <rect key="frame" x="37" y="88" width="341" height="309"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYZ-Vs-EHE">
-                                <rect key="frame" x="68" y="366" width="274" height="35"/>
+                                <rect key="frame" x="68" y="415" width="274" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AZI-n1-rH1">
-                                <rect key="frame" x="53" y="476" width="307" height="272"/>
+                                <rect key="frame" x="53" y="525" width="307" height="272"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -738,6 +741,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a8k-h1-6Fy"/>
                     </view>
+                    <connections>
+                        <outlet property="detailImageView" destination="AhJ-Pk-Ize" id="Wbt-Bt-ebY"/>
+                        <outlet property="detailLabel" destination="OYZ-Vs-EHE" id="nwv-nH-7px"/>
+                        <outlet property="detailTextView" destination="AZI-n1-rH1" id="jaH-DD-TxT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eg8-Fj-1z1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

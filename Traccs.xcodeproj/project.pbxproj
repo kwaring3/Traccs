@@ -22,6 +22,7 @@
 		1F39D758221616000089F641 /* AdminActiveCausesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D757221616000089F641 /* AdminActiveCausesDetailViewController.swift */; };
 		1F39D75A221619410089F641 /* UserCausesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D759221619410089F641 /* UserCausesDetailViewController.swift */; };
 		1F39D75C221619650089F641 /* UserDonationsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D75B221619650089F641 /* UserDonationsDetailViewController.swift */; };
+		1FDA8F1622270690009FEF9A /* UserCausesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F1522270690009FEF9A /* UserCausesCollectionViewCell.swift */; };
 		1FED610022248337000492B9 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED60FF22248337000492B9 /* Create.swift */; };
 		1FED610322248574000492B9 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED610222248574000492B9 /* DataPersistenceManager.swift */; };
 		1FED6105222486EC000492B9 /* DataPersistenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED6104222486EC000492B9 /* DataPersistenceModel.swift */; };
@@ -47,6 +48,7 @@
 		1F39D757221616000089F641 /* AdminActiveCausesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminActiveCausesDetailViewController.swift; sourceTree = "<group>"; };
 		1F39D759221619410089F641 /* UserCausesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCausesDetailViewController.swift; sourceTree = "<group>"; };
 		1F39D75B221619650089F641 /* UserDonationsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDonationsDetailViewController.swift; sourceTree = "<group>"; };
+		1FDA8F1522270690009FEF9A /* UserCausesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCausesCollectionViewCell.swift; sourceTree = "<group>"; };
 		1FED60FF22248337000492B9 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
 		1FED610222248574000492B9 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		1FED6104222486EC000492B9 /* DataPersistenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceModel.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				1F0ACD612225D1EF00282C97 /* AdminActiveCausesCollectionViewCell.swift */,
+				1FDA8F1522270690009FEF9A /* UserCausesCollectionViewCell.swift */,
 				1F39D71F221228110089F641 /* Admin */,
 				1F39D71A221225BB0089F641 /* User */,
 			);
@@ -231,6 +234,7 @@
 				1F39D75A221619410089F641 /* UserCausesDetailViewController.swift in Sources */,
 				1FED610822248FCF000492B9 /* Date + Extensions.swift in Sources */,
 				1F39D71E221226330089F641 /* AdminMetricsViewController.swift in Sources */,
+				1FDA8F1622270690009FEF9A /* UserCausesCollectionViewCell.swift in Sources */,
 				1F39D752221615640089F641 /* AdminActiveCausesViewController.swift in Sources */,
 				1FED610322248574000492B9 /* DataPersistenceManager.swift in Sources */,
 				1F39D750221614EC0089F641 /* UserCausesViewController.swift in Sources */,

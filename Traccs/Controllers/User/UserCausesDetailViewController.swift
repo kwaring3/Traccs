@@ -10,6 +10,8 @@ import UIKit
 
 class UserCausesDetailViewController: UIViewController {
 
+    
+    var UCauseInfo: Create?
     override func viewDidLoad() {
         super.viewDidLoad()
 

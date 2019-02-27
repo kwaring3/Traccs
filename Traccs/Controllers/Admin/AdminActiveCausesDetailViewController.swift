@@ -12,12 +12,17 @@ class AdminActiveCausesDetailViewController: UIViewController {
 
     public var create: Create!
     var causes = DataPersistenceModel.get()
-    var causeInfo = [Create]()
+    var causeInfo: Create?
     
+    @IBOutlet weak var detailImageView: UIImageView!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var detailTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
+        //self.detailImageView.image = image 
+        self.detailLabel.text = causeInfo?.title
+        self.detailTextView.text = causeInfo?.causeDescription
     }
     
 
