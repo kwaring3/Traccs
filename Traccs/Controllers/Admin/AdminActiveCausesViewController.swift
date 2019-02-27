@@ -40,7 +40,25 @@ class AdminActiveCausesViewController: UIViewController {
 //        destination.create = cause
 //    }
     
-
+    @IBAction func activeCauseButtonPressed(_ sender: UIButton) {
+        let index = sender.tag
+        let actionSheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
+        }
+        let delete = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
+            DataPersistenceModel.deleteQuiz(index: index)
+            
+            
+            
+//            self.causes = DataPersistenceModel.get()
+//            self.activeCollectionView.reloadData()
+            
+        }
+        actionSheet.addAction(cancelAction)
+        actionSheet.addAction(delete)
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
     
 
 }
