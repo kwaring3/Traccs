@@ -19,13 +19,19 @@ class AdminActiveCausesDetailViewController: UIViewController {
     @IBOutlet weak var detailTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
 
         //self.detailImageView.image = image 
         self.detailLabel.text = causeInfo?.title
         self.detailTextView.text = causeInfo?.causeDescription
     }
-    
 
+    
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     
     
 

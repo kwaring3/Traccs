@@ -56,7 +56,7 @@ extension UserCausesViewController: UICollectionViewDataSource, UICollectionView
 }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        guard let userCausesDetail = storyboard.instantiateViewController(withIdentifier: "userCausesViewController") as? UserCausesDetailViewController else {print("NO VC")
+        guard let userCausesDetail = storyboard.instantiateViewController(withIdentifier: "userCausesDetailViewController") as? UserCausesDetailViewController else {print("NO VC")
             return
         }
         let UCauseInfoToSend = UCauses[indexPath.row]
