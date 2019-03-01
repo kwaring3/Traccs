@@ -34,7 +34,7 @@ class AdminCreateCauseViewController: UIViewController {
     }
     
     private func reset() {
-        createTextField.text = "Enter Name of Cause"
+        createTextField.placeholder = "Enter Name of Cause"
         createTextView.text = "Enter Description of Cause"
         
     }

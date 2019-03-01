@@ -23,6 +23,7 @@
 		1F39D75A221619410089F641 /* UserCausesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D759221619410089F641 /* UserCausesDetailViewController.swift */; };
 		1F39D75C221619650089F641 /* UserDonationsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F39D75B221619650089F641 /* UserDonationsDetailViewController.swift */; };
 		1FDA8F1622270690009FEF9A /* UserCausesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F1522270690009FEF9A /* UserCausesCollectionViewCell.swift */; };
+		1FDA8F18222998AF009FEF9A /* UpdateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F17222998AF009FEF9A /* UpdateModel.swift */; };
 		1FED610022248337000492B9 /* Create.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED60FF22248337000492B9 /* Create.swift */; };
 		1FED610322248574000492B9 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED610222248574000492B9 /* DataPersistenceManager.swift */; };
 		1FED6105222486EC000492B9 /* DataPersistenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED6104222486EC000492B9 /* DataPersistenceModel.swift */; };
@@ -49,6 +50,7 @@
 		1F39D759221619410089F641 /* UserCausesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCausesDetailViewController.swift; sourceTree = "<group>"; };
 		1F39D75B221619650089F641 /* UserDonationsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDonationsDetailViewController.swift; sourceTree = "<group>"; };
 		1FDA8F1522270690009FEF9A /* UserCausesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCausesCollectionViewCell.swift; sourceTree = "<group>"; };
+		1FDA8F17222998AF009FEF9A /* UpdateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateModel.swift; sourceTree = "<group>"; };
 		1FED60FF22248337000492B9 /* Create.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Create.swift; sourceTree = "<group>"; };
 		1FED610222248574000492B9 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		1FED6104222486EC000492B9 /* DataPersistenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceModel.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				1FED60FF22248337000492B9 /* Create.swift */,
+				1FDA8F17222998AF009FEF9A /* UpdateModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				1F39D75C221619650089F641 /* UserDonationsDetailViewController.swift in Sources */,
 				1F0ACD622225D1EF00282C97 /* AdminActiveCausesCollectionViewCell.swift in Sources */,
 				1FED6105222486EC000492B9 /* DataPersistenceModel.swift in Sources */,
+				1FDA8F18222998AF009FEF9A /* UpdateModel.swift in Sources */,
 				1F39D754221615850089F641 /* AdminCreateCauseViewController.swift in Sources */,
 				1FED610022248337000492B9 /* Create.swift in Sources */,
 			);
