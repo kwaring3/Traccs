@@ -33,6 +33,7 @@ class AdminActiveCausesDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateTableView.dataSource = self
+        updateTableView.delegate = self
         setupPage()
 
 
@@ -42,11 +43,19 @@ class AdminActiveCausesDetailViewController: UIViewController {
     
     private func setupPage() {
         self.detailLabel.text = causeInfo?.title
-        self.detailTextView.text = causeInfo?.causeDescription
+
+        if let words = causeInfo?.causeDescription {
+            detailTextView.text = "\(words)"
+        } else {
+            detailTextView.text = "N/A"
+        }
+        //self.detailTextView.text = causeInfo?.causeDescription
         self.detailImageView.image = (UIImage(data: (causeInfo?.image)!))
         self.updateTextView.text = "Enter Update Here"
 
     }
+    
+    
     public func save() {
 
         if let textTitle = self.updateTextView.text {
@@ -69,7 +78,7 @@ class AdminActiveCausesDetailViewController: UIViewController {
     
 
 }
-extension AdminActiveCausesDetailViewController: UITableViewDataSource {
+extension AdminActiveCausesDetailViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return update.count
     }
@@ -83,6 +92,16 @@ extension AdminActiveCausesDetailViewController: UITableViewDataSource {
         cell.textLabel?.text = update[indexPath.row].updatesTitle
         cell.detailTextLabel?.text =  update[indexPath.row].updates
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let tableViewDetail = storyboard.instantiateViewController(withIdentifier: "TableViewDetail") as? AdminTableViewDetailViewController else {print("NO VC")
+            return
+        }
+        let tableViewInfoToSend = update[indexPath.row]
+        tableViewDetail.update = tableViewInfoToSend
+        tableViewDetail.modalPresentationStyle = .fullScreen
+        present(tableViewDetail, animated: true, completion: nil)
     }
     
     

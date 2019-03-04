@@ -44,7 +44,16 @@ extension UserDonationsDetailViewController: UITableViewDataSource {
         cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle,
                                reuseIdentifier: "UpdatesCell")
         cell.textLabel?.text = updates1[indexPath.row].updatesTitle
-        cell.detailTextLabel?.text =  updates1[indexPath.row].updates
+        
+//        if let dtl = create.causeDescription {
+//            cell.detailTextLabel?.text = updates1[indexPath.row].updates
+//        } else {
+//            cell.detailTextLabel?.text = "N/A"
+//        }
+         cell.detailTextLabel?.text = updates1[indexPath.row].updates
+            
+            
+        
         return cell
     }
     

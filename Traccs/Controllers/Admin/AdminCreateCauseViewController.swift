@@ -51,9 +51,12 @@ class AdminCreateCauseViewController: UIViewController {
     let timeStamp = isoDateFormatter.string(from: date)
     
     if let imageData = createImageView.image?.jpegData(compressionQuality: 0.5){
-        let photo = Create.init(image: imageData, title: textTitle, causeDescription: "\(self.createTextView)", createdAt: timeStamp)
-        DataPersistenceModel.add1(cause: photo)
-        dismiss(animated: true, completion: nil)
+        if let text = createTextView.text {
+            let photo = Create.init(image: imageData, title: textTitle, causeDescription: text, createdAt: timeStamp)
+            DataPersistenceModel.add1(cause: photo)
+            dismiss(animated: true, completion: nil)
+        }
+
         
     } else {
     dismiss(animated: true, completion: nil)
@@ -67,6 +70,7 @@ class AdminCreateCauseViewController: UIViewController {
     @IBAction func createButtonPressed(_ sender: UIButton) {
          save()
         reset()
+        self.createImageView.image = (UIImage(named: "placeholder-image-2"))
     }
     @IBAction func imageButtonPressed(_ sender: UIButton) {
         imagePicker.sourceType = .photoLibrary

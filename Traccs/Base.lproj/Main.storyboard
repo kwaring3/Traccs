@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mFa-dE-qTG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WDS-7I-L2e">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -522,8 +522,8 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSn-f4-wpq">
-                                <rect key="frame" x="20" y="91" width="48" height="30"/>
-                                <state key="normal" title="Cancel"/>
+                                <rect key="frame" x="20" y="91" width="34" height="30"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="cancelButtonPressed:" destination="Zdq-9O-MHX" eventType="touchUpInside" id="PhF-tZ-Mdy"/>
                                 </connections>
@@ -535,6 +535,9 @@
                                 <state key="normal" title="Donate">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="donateButtonPressed:" destination="Zdq-9O-MHX" eventType="touchUpInside" id="KmW-8j-PdX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -570,20 +573,65 @@
             </objects>
             <point key="canvasLocation" x="4898.5507246376819" y="-2119.4196428571427"/>
         </scene>
-        <!--View Controller-->
+        <!--User Donated View Controller-->
         <scene sceneID="wpm-i3-2lW">
             <objects>
-                <viewController id="zO0-rf-hcb" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserDonatedViewController" id="zO0-rf-hcb" customClass="UserDonatedViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4ge-sj-YkT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Much Would you like to donate?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eev-1Y-9Er">
+                                <rect key="frame" x="0.0" y="310" width="414" height="69"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbS-yW-gWB">
+                                <rect key="frame" x="138" y="387" width="139" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMB-xh-3e8">
+                                <rect key="frame" x="68" y="482" width="278" height="70"/>
+                                <color key="backgroundColor" red="0.1066711519" green="0.17527140390000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="34"/>
+                                <state key="normal" title="Donate">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYy-H8-IUf">
+                                <rect key="frame" x="19" y="60" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="zO0-rf-hcb" eventType="touchUpInside" id="Ozk-da-LzL"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="aMB-xh-3e8" firstAttribute="top" secondItem="mbS-yW-gWB" secondAttribute="bottom" constant="65" id="6Qg-AA-olw"/>
+                            <constraint firstItem="mbS-yW-gWB" firstAttribute="top" secondItem="Eev-1Y-9Er" secondAttribute="bottom" constant="8" id="Cfp-HB-EsI"/>
+                            <constraint firstItem="Eev-1Y-9Er" firstAttribute="top" secondItem="bZF-TD-dH9" secondAttribute="top" constant="266" id="ReN-1g-KeA"/>
+                            <constraint firstItem="nYy-H8-IUf" firstAttribute="top" secondItem="bZF-TD-dH9" secondAttribute="top" constant="16" id="RtM-n9-Qqs"/>
+                            <constraint firstItem="bZF-TD-dH9" firstAttribute="bottom" secondItem="aMB-xh-3e8" secondAttribute="bottom" constant="310" id="TNj-eb-rO4"/>
+                            <constraint firstItem="bZF-TD-dH9" firstAttribute="bottom" secondItem="Eev-1Y-9Er" secondAttribute="bottom" constant="483" id="bbU-tH-6mK"/>
+                            <constraint firstItem="bZF-TD-dH9" firstAttribute="trailing" secondItem="aMB-xh-3e8" secondAttribute="trailing" constant="68" id="eQI-ct-nu8"/>
+                            <constraint firstItem="bZF-TD-dH9" firstAttribute="trailing" secondItem="mbS-yW-gWB" secondAttribute="trailing" constant="137" id="fRZ-iI-oiz"/>
+                            <constraint firstItem="bZF-TD-dH9" firstAttribute="bottom" secondItem="mbS-yW-gWB" secondAttribute="bottom" constant="445" id="iS9-l0-uKw"/>
+                            <constraint firstItem="Eev-1Y-9Er" firstAttribute="trailing" secondItem="bZF-TD-dH9" secondAttribute="trailing" id="lsf-Vz-vPt"/>
+                            <constraint firstItem="Eev-1Y-9Er" firstAttribute="leading" secondItem="bZF-TD-dH9" secondAttribute="leading" id="n3j-He-Er3"/>
+                            <constraint firstItem="aMB-xh-3e8" firstAttribute="leading" secondItem="bZF-TD-dH9" secondAttribute="leading" constant="68" id="pNa-7m-Uiq"/>
+                            <constraint firstItem="nYy-H8-IUf" firstAttribute="leading" secondItem="bZF-TD-dH9" secondAttribute="leading" constant="19" id="pQf-AN-5Jd"/>
+                            <constraint firstItem="mbS-yW-gWB" firstAttribute="leading" secondItem="bZF-TD-dH9" secondAttribute="leading" constant="138" id="vJp-cf-fP9"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="bZF-TD-dH9"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Wc-Ae-nRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5839" y="-2119"/>
+            <point key="canvasLocation" x="5837.68115942029" y="-2119.4196428571427"/>
         </scene>
         <!--Metrics-->
         <scene sceneID="JiL-cc-MiT">
@@ -961,10 +1009,10 @@
             </objects>
             <point key="canvasLocation" x="3316" y="1764"/>
         </scene>
-        <!--View Controller-->
+        <!--Admin Table View Detail View Controller-->
         <scene sceneID="8bt-qc-W3g">
             <objects>
-                <viewController id="Kbv-B9-iw7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TableViewDetail" id="Kbv-B9-iw7" customClass="AdminTableViewDetailViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="khf-JG-3LO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -982,6 +1030,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SP4-0R-yOi">
+                                <rect key="frame" x="19" y="86" width="48" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="Kbv-B9-iw7" eventType="touchUpInside" id="DZg-H5-Ynb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -992,9 +1047,15 @@
                             <constraint firstItem="W3z-ZG-xZx" firstAttribute="top" secondItem="geZ-hX-Cvq" secondAttribute="top" constant="148" id="P1d-Mb-eC0"/>
                             <constraint firstItem="geZ-hX-Cvq" firstAttribute="trailing" secondItem="rOU-HO-c8W" secondAttribute="trailing" constant="20" id="Vin-uh-amX"/>
                             <constraint firstItem="W3z-ZG-xZx" firstAttribute="leading" secondItem="geZ-hX-Cvq" secondAttribute="leading" constant="92" id="gou-Xv-Q9W"/>
+                            <constraint firstItem="SP4-0R-yOi" firstAttribute="top" secondItem="geZ-hX-Cvq" secondAttribute="top" constant="42" id="jZL-ju-11h"/>
+                            <constraint firstItem="SP4-0R-yOi" firstAttribute="leading" secondItem="geZ-hX-Cvq" secondAttribute="leading" constant="19" id="oea-OC-5s5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="geZ-hX-Cvq"/>
                     </view>
+                    <connections>
+                        <outlet property="updateDescription" destination="rOU-HO-c8W" id="TB5-0k-Mq6"/>
+                        <outlet property="updateLabel" destination="W3z-ZG-xZx" id="F86-qm-6vI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPb-YV-fEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

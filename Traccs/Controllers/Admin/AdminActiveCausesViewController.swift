@@ -29,9 +29,9 @@ class AdminActiveCausesViewController: UIViewController {
         causeInfo = DataPersistenceModel.get()
         
     }
-//    override func viewWillAppear(_ animated: Bool) {
-//        reload()
-//    }
+    override func viewWillAppear(_ animated: Bool) {
+        reload()
+    }
     func reload() {
         causeInfo = DataPersistenceModel.get()
         activeCollectionView.reloadData()
