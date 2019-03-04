@@ -10,21 +10,48 @@ import UIKit
 
 class UserDonationsDetailViewController: UIViewController {
 
+    var create: Create!
+    var updates1 =  [Update]() {
+        didSet{
+            DispatchQueue.main.async {
+                self.updatesTableView.reloadData()
+            }
+        }
+    }
+    
+    @IBOutlet weak var updatesTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        updatesTableView.dataSource = self
 
-        // Do any additional setup after loading the view.
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
 
 }
+extension UserDonationsDetailViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return updates1.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        updatesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "UpdatesCell")
+        
+        var cell = updatesTableView.dequeueReusableCell(withIdentifier: "UpdatesCell", for: indexPath as IndexPath)
+        cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle,
+                               reuseIdentifier: "UpdatesCell")
+        cell.textLabel?.text = updates1[indexPath.row].updatesTitle
+        cell.detailTextLabel?.text =  updates1[indexPath.row].updates
+        return cell
+    }
+    
+    
+    
+    
+    
+    
+}
+

@@ -14,4 +14,5 @@ struct Create: Codable {
     let title: String
     let causeDescription: String
     let createdAt: String
+    //let update1: [Update]
 }

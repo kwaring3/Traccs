@@ -43,6 +43,7 @@ class AdminActiveCausesDetailViewController: UIViewController {
     private func setupPage() {
         self.detailLabel.text = causeInfo?.title
         self.detailTextView.text = causeInfo?.causeDescription
+        self.detailImageView.image = (UIImage(data: (causeInfo?.image)!))
         self.updateTextView.text = "Enter Update Here"
 
     }

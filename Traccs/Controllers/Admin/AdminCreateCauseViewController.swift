@@ -34,8 +34,9 @@ class AdminCreateCauseViewController: UIViewController {
     }
     
     private func reset() {
-        createTextField.placeholder = "Enter Name of Cause"
-        createTextView.text = "Enter Description of Cause"
+        createTextField.text = nil
+        self.createTextField.placeholder = "Enter Name of Cause"
+        self.createTextView.text = "Enter Description of Cause"
         
     }
     private func save() {
@@ -90,25 +91,6 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     }
     
 }
-//    @objc private func save() {
-//        let date = Date.getISOTimestamp()
-//        let create = Create.init(image:  , title: self.createTextField, causeDescription: self.createTextView, createdAt: date)
-//        DataPersistenceModel.add1(cause: create)
-//
-//        reset()
-//
-//
-//
-//    }
-//     private func cancel() {
-//        dismiss(animated: true, completion: nil)
-//        
-//    }
-//    
-//    @IBAction func createButtonPressed(_ sender: UIButton) {
-//       // save()
-//        reset()
-//    }
 
     
     

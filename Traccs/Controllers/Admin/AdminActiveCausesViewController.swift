@@ -12,7 +12,7 @@ class AdminActiveCausesViewController: UIViewController {
 
     @IBOutlet weak var activeCollectionView: UICollectionView!
     
-    var causes = DataPersistenceModel.get()
+    //var causes = DataPersistenceModel.get()
     var causeInfo = [Create]() {
         didSet{
             DispatchQueue.main.async {
@@ -29,8 +29,11 @@ class AdminActiveCausesViewController: UIViewController {
         causeInfo = DataPersistenceModel.get()
         
     }
+//    override func viewWillAppear(_ animated: Bool) {
+//        reload()
+//    }
     func reload() {
-        causes = DataPersistenceModel.get()
+        causeInfo = DataPersistenceModel.get()
         activeCollectionView.reloadData()
     }
     
@@ -47,7 +50,7 @@ class AdminActiveCausesViewController: UIViewController {
         }
         let delete = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
             DataPersistenceModel.deleteQuiz(index: index)
-            
+            self.reload()
             
             
 //            self.causes = DataPersistenceModel.get()
@@ -69,12 +72,10 @@ extension AdminActiveCausesViewController: UICollectionViewDataSource, UICollect
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActiveCell", for: indexPath) as? AdminActiveCausesCollectionViewCell else {return UICollectionViewCell()}
-        let photoToSet = causes[indexPath.row]
+        let photoToSet = causeInfo[indexPath.row]
         cell.titleLabel.text = causeInfo[indexPath.row].title
         cell.activeImageView.image = UIImage(data: photoToSet.image)
         cell.backgroundColor = .white
-//        cell.button.tag = indexPath.row
-//        cell.button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
         return cell
@@ -84,7 +85,7 @@ extension AdminActiveCausesViewController: UICollectionViewDataSource, UICollect
         guard let adminActiveDetail = storyboard.instantiateViewController(withIdentifier: "adminActiveDetail") as? AdminActiveCausesDetailViewController else {print("NO VC")
             return
         }
-        let causeInfoToSend = causes[indexPath.row]
+        let causeInfoToSend = causeInfo[indexPath.row]
         adminActiveDetail.causeInfo = causeInfoToSend
         adminActiveDetail.modalPresentationStyle = .fullScreen
         present(adminActiveDetail, animated: true, completion: nil)
