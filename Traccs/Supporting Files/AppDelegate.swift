@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import Firebase
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var userSession: UserSession!
 
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FirebaseApp.configure()
+        
+        userSession = UserSession()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let adminloginViewController = storyboard.instantiateViewController(withIdentifier: "AdminLoginViewController") as! AdminLoginViewController
+        window?.rootViewController = adminloginViewController
+        window?.makeKeyAndVisible()
         return true
     }
 

@@ -10,7 +10,7 @@ import UIKit
 
 class UserDonationsDetailViewController: UIViewController {
 
-    var create: Create!
+    var create: AdminCause!
     var updates1 =  [Update]() {
         didSet{
             DispatchQueue.main.async {

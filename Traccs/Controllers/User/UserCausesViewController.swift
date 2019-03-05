@@ -13,7 +13,7 @@ class UserCausesViewController: UIViewController {
     @IBOutlet weak var userCauseCollectionView: UICollectionView!
     
     var UCauses = DataPersistenceModel.get()
-    var UCauseInfo = [Create]() {
+    var UCauseInfo = [AdminCause]() {
         didSet{
             DispatchQueue.main.async {
                 self.userCauseCollectionView.reloadData()

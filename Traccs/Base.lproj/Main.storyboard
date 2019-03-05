@@ -117,7 +117,7 @@
         <!--Item-->
         <scene sceneID="lM7-as-abD">
             <objects>
-                <viewController id="6lx-xJ-XjS" customClass="AdminLoginViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AdminLoginViewController" id="6lx-xJ-XjS" customClass="AdminLoginViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R7w-TV-axI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,6 +151,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="6lx-xJ-XjS" eventType="touchUpInside" id="sSJ-kG-pvC"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Account? Create Here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfA-du-7ug">
                                 <rect key="frame" x="16" y="531" width="382" height="21"/>
@@ -179,6 +182,12 @@
                         <viewLayoutGuide key="safeArea" id="SqK-ue-IEb"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="uY3-4q-a2l"/>
+                    <connections>
+                        <outlet property="accountMessageLabel" destination="HfA-du-7ug" id="BoZ-YS-7RH"/>
+                        <outlet property="loginButton" destination="iNd-u2-Q6i" id="ShL-oj-gYC"/>
+                        <outlet property="nameTextField" destination="gOL-bg-eiv" id="AsY-xi-bjK"/>
+                        <outlet property="passwordTextField" destination="Epu-nF-Ucf" id="c5V-5t-cIR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sm-Ie-04E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -247,6 +256,11 @@
                         <viewLayoutGuide key="safeArea" id="nYb-MV-XKO"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="hZM-OW-nxm"/>
+                    <connections>
+                        <outlet property="loginButton" destination="Qe0-8U-cKd" id="wTo-hG-rsR"/>
+                        <outlet property="nameTextField" destination="bNG-gm-G8b" id="MWh-nl-I33"/>
+                        <outlet property="passwordTextField" destination="72H-W6-8jR" id="77I-E4-Skj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XZs-ba-sIl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -497,6 +511,32 @@
             </objects>
             <point key="canvasLocation" x="3786.9565217391309" y="-2119.4196428571427"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="sj9-WC-x1e">
+            <objects>
+                <viewController id="s3J-YR-iZ2" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="veT-Q9-T2O">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="meta-chart" translatesAutoresizingMaskIntoConstraints="NO" id="U5J-wh-37C">
+                                <rect key="frame" x="0.0" y="246" width="414" height="327"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="U5J-wh-37C" firstAttribute="top" secondItem="m56-Mm-0xm" secondAttribute="top" constant="202" id="6kq-4K-RWB"/>
+                            <constraint firstItem="m56-Mm-0xm" firstAttribute="bottom" secondItem="U5J-wh-37C" secondAttribute="bottom" constant="289" id="JDF-12-GXd"/>
+                            <constraint firstItem="U5J-wh-37C" firstAttribute="trailing" secondItem="m56-Mm-0xm" secondAttribute="trailing" id="WRB-cl-VlU"/>
+                            <constraint firstItem="U5J-wh-37C" firstAttribute="leading" secondItem="m56-Mm-0xm" secondAttribute="leading" id="ah4-S3-V9z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="m56-Mm-0xm"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ncd-9o-6V9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4911.594202898551" y="-2833.2589285714284"/>
+        </scene>
         <!--User Causes Detail View Controller-->
         <scene sceneID="adY-uD-dSw">
             <objects>
@@ -537,6 +577,15 @@
                                 </state>
                                 <connections>
                                     <action selector="donateButtonPressed:" destination="Zdq-9O-MHX" eventType="touchUpInside" id="KmW-8j-PdX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hG8-3n-EZQ">
+                                <rect key="frame" x="345" y="91" width="52" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Metrics"/>
+                                <connections>
+                                    <action selector="metricsButtonPressed:" destination="Zdq-9O-MHX" eventType="touchUpInside" id="B7a-Bn-d4L"/>
+                                    <segue destination="s3J-YR-iZ2" kind="show" id="BLY-GG-JvS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -844,7 +893,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CR0-A5-rAz">
                                 <rect key="frame" x="37" y="605" width="341" height="80"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -1063,6 +1112,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="meta-chart" width="1200" height="800"/>
         <image name="money1" width="648" height="456"/>
         <image name="placeholder-image-2" width="512" height="512"/>
     </resources>

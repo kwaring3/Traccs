@@ -11,7 +11,7 @@ import Foundation
 
 final class DataPersistenceModel {
     private static var filename = "Cause.plist"
-    static var mainCause = [Create]()
+    static var mainCause = [AdminCause]()
     
     private init() {}
     
@@ -24,16 +24,16 @@ final class DataPersistenceModel {
             print("Property list encoding error (error)")
         }
     }
-    static func add1(cause: Create) {
+    static func add1(cause: AdminCause) {
         mainCause.append(cause)
         save()
     }
-    static func get() -> [Create] {
+    static func get() -> [AdminCause] {
         let path = DataPersistenceManager.filepathToDocumentsDiretory(filename: filename).path
         if FileManager.default.fileExists(atPath: path) {
             if let data = FileManager.default.contents(atPath: path) {
                 do {
-                    mainCause = try PropertyListDecoder().decode([Create].self, from: data).sorted(by: {$0.createdAt > $1.createdAt})
+                    mainCause = try PropertyListDecoder().decode([AdminCause].self, from: data).sorted(by: {$0.createdAt > $1.createdAt})
                 } catch {
                     print("Property list decode error: (error)")
                 }

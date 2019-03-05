@@ -52,7 +52,7 @@ class AdminCreateCauseViewController: UIViewController {
     
     if let imageData = createImageView.image?.jpegData(compressionQuality: 0.5){
         if let text = createTextView.text {
-            let photo = Create.init(image: imageData, title: textTitle, causeDescription: text, createdAt: timeStamp)
+            let photo = AdminCause.init(image: imageData, title: textTitle, causeDescription: text, createdAt: timeStamp)
             DataPersistenceModel.add1(cause: photo)
             dismiss(animated: true, completion: nil)
         }

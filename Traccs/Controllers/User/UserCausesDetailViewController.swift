@@ -11,7 +11,7 @@ import UIKit
 class UserCausesDetailViewController: UIViewController {
 
     
-    var UCauseInfo: Create?
+    var UCauseInfo: AdminCause?
     
     @IBOutlet weak var UDetailImageView: UIImageView!
     @IBOutlet weak var UDetailLabel: UILabel!
@@ -43,5 +43,22 @@ class UserCausesDetailViewController: UIViewController {
         present(userDonated, animated: true, completion: nil)
     }
     
-
+    @IBAction func metricsButtonPressed(_ sender: UIButton) {
+        let alert = UIAlertController(title: "Donations Breakdown", message: "                                                                           ____________________________________________________________________________       ", preferredStyle: .alert)
+        
+        
+        let imageView = UIImageView(frame: CGRect(x: 120, y: 50, width: 40, height: 40))
+        imageView.image = UIImage(named: "placeholder-image-2")
+        
+        alert.view.addSubview(imageView)
+        alert.view.addSubview(imageView)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (alert: UIAlertAction!) -> Void in
+            
+        }
+        
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
 }

@@ -13,7 +13,7 @@ class AdminActiveCausesViewController: UIViewController {
     @IBOutlet weak var activeCollectionView: UICollectionView!
     
     //var causes = DataPersistenceModel.get()
-    var causeInfo = [Create]() {
+    var causeInfo = [AdminCause]() {
         didSet{
             DispatchQueue.main.async {
                 self.activeCollectionView.reloadData()

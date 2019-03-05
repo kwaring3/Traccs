@@ -10,9 +10,9 @@ import UIKit
 
 class AdminActiveCausesDetailViewController: UIViewController {
 
-    public var create: Create!
+    public var create: AdminCause!
     var causes = DataPersistenceModel.get()
-    var causeInfo: Create?
+    var causeInfo: AdminCause?
     
     var update =  [Update]() {
         didSet{
