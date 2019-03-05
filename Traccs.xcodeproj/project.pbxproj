@@ -33,6 +33,7 @@
 		1FDA8F26222EE5B8009FEF9A /* AdminLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F25222EE5B8009FEF9A /* AdminLoginView.swift */; };
 		1FDA8F29222F0405009FEF9A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F28222F0404009FEF9A /* DatabaseManager.swift */; };
 		1FDA8F2B222F0447009FEF9A /* DatabaseKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F2A222F0447009FEF9A /* DatabaseKeys.swift */; };
+		1FDA8F2D222F1960009FEF9A /* UserMetricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F2C222F1960009FEF9A /* UserMetricsViewController.swift */; };
 		1FED610022248337000492B9 /* AdminCause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED60FF22248337000492B9 /* AdminCause.swift */; };
 		1FED610322248574000492B9 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED610222248574000492B9 /* DataPersistenceManager.swift */; };
 		1FED6105222486EC000492B9 /* DataPersistenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED6104222486EC000492B9 /* DataPersistenceModel.swift */; };
@@ -70,6 +71,7 @@
 		1FDA8F25222EE5B8009FEF9A /* AdminLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminLoginView.swift; sourceTree = "<group>"; };
 		1FDA8F28222F0404009FEF9A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1FDA8F2A222F0447009FEF9A /* DatabaseKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseKeys.swift; sourceTree = "<group>"; };
+		1FDA8F2C222F1960009FEF9A /* UserMetricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMetricsViewController.swift; sourceTree = "<group>"; };
 		1FED60FF22248337000492B9 /* AdminCause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCause.swift; sourceTree = "<group>"; };
 		1FED610222248574000492B9 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		1FED6104222486EC000492B9 /* DataPersistenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceModel.swift; sourceTree = "<group>"; };
@@ -124,6 +126,8 @@
 			children = (
 				1F002968220CD884002BE5A3 /* Main.storyboard */,
 				1FDA8F23222EE258009FEF9A /* UserSession.swift */,
+				1FDA8F28222F0404009FEF9A /* DatabaseManager.swift */,
+				1FDA8F2A222F0447009FEF9A /* DatabaseKeys.swift */,
 				1FDA8F27222EE5DA009FEF9A /* View */,
 				1FED610B2224909A000492B9 /* File Managers and Date Files */,
 				1FED61062224884F000492B9 /* Supporting Files */,
@@ -131,8 +135,6 @@
 				1F39D711221224850089F641 /* Controllers */,
 				1F002970220CD885002BE5A3 /* Info.plist */,
 				1FDA8F21222ED8AB009FEF9A /* GoogleService-Info.plist */,
-				1FDA8F28222F0404009FEF9A /* DatabaseManager.swift */,
-				1FDA8F2A222F0447009FEF9A /* DatabaseKeys.swift */,
 			);
 			path = Traccs;
 			sourceTree = "<group>";
@@ -158,6 +160,7 @@
 				1F39D74F221614EC0089F641 /* UserCausesViewController.swift */,
 				1F39D759221619410089F641 /* UserCausesDetailViewController.swift */,
 				1FDA8F1F222DC15A009FEF9A /* UserDonatedViewController.swift */,
+				1FDA8F2C222F1960009FEF9A /* UserMetricsViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				1F39D758221616000089F641 /* AdminActiveCausesDetailViewController.swift in Sources */,
 				1FED610A22248FF7000492B9 /* String + DateExtensions.swift in Sources */,
 				1F39D710221224040089F641 /* AdminLoginViewController.swift in Sources */,
+				1FDA8F2D222F1960009FEF9A /* UserMetricsViewController.swift in Sources */,
 				1F39D74E221614D40089F641 /* UserDonationsViewController.swift in Sources */,
 				1FDA8F24222EE258009FEF9A /* UserSession.swift in Sources */,
 				1F002965220CD884002BE5A3 /* AppDelegate.swift in Sources */,

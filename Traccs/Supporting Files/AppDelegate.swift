@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let adminloginViewController = storyboard.instantiateViewController(withIdentifier: "AdminLoginViewController") as! AdminLoginViewController
-        window?.rootViewController = adminloginViewController
+        let navigationController = storyboard.instantiateViewController(withIdentifier: "navigationController") as! UINavigationController
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         return true
     }

@@ -9,6 +9,6 @@
 import Foundation
 
 struct DatabaseKeys {
-    static let RaceReviewCollectionKey = "raceReviews" // firestore collecton key
+    static let CollectionKey = "" // firestore collecton key
     static let UsersCollectionKey = "users" // firestore collection key
 }

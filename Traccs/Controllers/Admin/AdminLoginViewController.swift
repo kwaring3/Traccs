@@ -63,6 +63,14 @@ class AdminLoginViewController: UIViewController {
                     userSession.signInexistingUser(email: email, password: password)
                     break
                 }
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        guard let adminLogin = storyboard.instantiateViewController(withIdentifier: "adminTabBarController") as? UITabBarController else {print("NO VC")
+            return
+        }
+//        let tableViewInfoToSend = update[indexPath.row]
+//        tableViewDetail.update = tableViewInfoToSend
+        //adminLogin.modalPresentationStyle = .fullScreen
+        present(adminLogin, animated: false, completion: nil)
         
     }
     @objc private func handleTap(gestureRecognizer: UITapGestureRecognizer) {

@@ -229,6 +229,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="xuq-e4-ln5" eventType="touchUpInside" id="dpv-CI-7MV"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Account? Create Here!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BaC-2d-dte">
                                 <rect key="frame" x="16" y="505" width="382" height="21"/>
@@ -257,6 +260,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="hZM-OW-nxm"/>
                     <connections>
+                        <outlet property="accountMessageLabel" destination="BaC-2d-dte" id="ylZ-wU-zJb"/>
                         <outlet property="loginButton" destination="Qe0-8U-cKd" id="wTo-hG-rsR"/>
                         <outlet property="nameTextField" destination="bNG-gm-G8b" id="MWh-nl-I33"/>
                         <outlet property="passwordTextField" destination="72H-W6-8jR" id="77I-E4-Skj"/>
@@ -511,10 +515,10 @@
             </objects>
             <point key="canvasLocation" x="3786.9565217391309" y="-2119.4196428571427"/>
         </scene>
-        <!--View Controller-->
+        <!--User Metrics View Controller-->
         <scene sceneID="sj9-WC-x1e">
             <objects>
-                <viewController id="s3J-YR-iZ2" sceneMemberID="viewController">
+                <viewController id="s3J-YR-iZ2" customClass="UserMetricsViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="veT-Q9-T2O">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -532,6 +536,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m56-Mm-0xm"/>
                     </view>
+                    <connections>
+                        <outlet property="metricsImageView" destination="U5J-wh-37C" id="TXr-IA-eV5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ncd-9o-6V9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -569,7 +576,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHh-vy-tEh">
-                                <rect key="frame" x="66" y="744" width="278" height="70"/>
+                                <rect key="frame" x="68" y="680" width="278" height="53"/>
                                 <color key="backgroundColor" red="0.1066711519" green="0.17527140390000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <state key="normal" title="Donate">
@@ -588,24 +595,44 @@
                                     <segue destination="s3J-YR-iZ2" kind="show" id="BLY-GG-JvS"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WfQ-yv-HQP">
+                                <rect key="frame" x="159" y="794" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How Much Would you like to donate?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shf-XI-k5f">
+                                <rect key="frame" x="1" y="735" width="414" height="59"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="WfQ-yv-HQP" firstAttribute="top" secondItem="DHh-vy-tEh" secondAttribute="bottom" constant="61" id="05S-9O-JXc"/>
+                            <constraint firstItem="hNu-Be-V36" firstAttribute="bottom" secondItem="WfQ-yv-HQP" secondAttribute="bottom" constant="38" id="0MR-tb-hFE"/>
                             <constraint firstItem="Ivb-LH-syN" firstAttribute="leading" secondItem="hNu-Be-V36" secondAttribute="leading" constant="20" id="1bY-qB-W0I"/>
-                            <constraint firstItem="DHh-vy-tEh" firstAttribute="leading" secondItem="hNu-Be-V36" secondAttribute="leading" constant="66" id="4QU-aR-8VL"/>
+                            <constraint firstAttribute="trailing" secondItem="Shf-XI-k5f" secondAttribute="trailing" constant="-1" id="2Eg-Np-BZQ"/>
+                            <constraint firstItem="DHh-vy-tEh" firstAttribute="leading" secondItem="hNu-Be-V36" secondAttribute="leading" constant="68" id="2oV-Hn-Aa7"/>
+                            <constraint firstItem="Shf-XI-k5f" firstAttribute="leading" secondItem="hNu-Be-V36" secondAttribute="leading" constant="1" id="47s-zI-Ytq"/>
                             <constraint firstItem="hNu-Be-V36" firstAttribute="bottom" secondItem="Ivb-LH-syN" secondAttribute="bottom" constant="437" id="8d8-3P-1f9"/>
-                            <constraint firstItem="DHh-vy-tEh" firstAttribute="top" secondItem="tjT-4q-ch2" secondAttribute="bottom" constant="267" id="9Ly-tW-4wW"/>
+                            <constraint firstItem="hNu-Be-V36" firstAttribute="trailing" secondItem="DHh-vy-tEh" secondAttribute="trailing" constant="68" id="ASf-va-QLH"/>
                             <constraint firstItem="hNu-Be-V36" firstAttribute="trailing" secondItem="s8S-ef-qdV" secondAttribute="trailing" constant="20" id="AmS-8P-b2s"/>
+                            <constraint firstItem="WfQ-yv-HQP" firstAttribute="leading" secondItem="hNu-Be-V36" secondAttribute="leading" constant="159" id="At2-V3-x25"/>
                             <constraint firstItem="hNu-Be-V36" firstAttribute="bottom" secondItem="tjT-4q-ch2" secondAttribute="bottom" constant="385" id="EiZ-Bu-fIa"/>
                             <constraint firstItem="hNu-Be-V36" firstAttribute="trailing" secondItem="tjT-4q-ch2" secondAttribute="trailing" constant="20" id="FT1-od-jqW"/>
                             <constraint firstItem="tjT-4q-ch2" firstAttribute="top" secondItem="Ivb-LH-syN" secondAttribute="bottom" constant="13" id="Fss-Au-2eC"/>
                             <constraint firstItem="s8S-ef-qdV" firstAttribute="top" secondItem="tjT-4q-ch2" secondAttribute="bottom" constant="8" id="GeB-k4-Z4p"/>
                             <constraint firstItem="s8S-ef-qdV" firstAttribute="leading" secondItem="hNu-Be-V36" secondAttribute="leading" constant="20" id="Jwa-4r-URx"/>
                             <constraint firstItem="gSn-f4-wpq" firstAttribute="leading" secondItem="hNu-Be-V36" secondAttribute="leading" constant="20" id="KE7-hg-xZA"/>
+                            <constraint firstItem="DHh-vy-tEh" firstAttribute="top" secondItem="tjT-4q-ch2" secondAttribute="bottom" constant="203" id="KYl-9O-oi5"/>
                             <constraint firstItem="tjT-4q-ch2" firstAttribute="leading" secondItem="hNu-Be-V36" secondAttribute="leading" constant="20" id="LC4-3F-GPB"/>
+                            <constraint firstItem="WfQ-yv-HQP" firstAttribute="top" secondItem="Shf-XI-k5f" secondAttribute="bottom" id="N1o-qc-6hJ"/>
+                            <constraint firstItem="Shf-XI-k5f" firstAttribute="top" secondItem="DHh-vy-tEh" secondAttribute="bottom" constant="2" id="XzN-oV-XRI"/>
                             <constraint firstItem="hNu-Be-V36" firstAttribute="trailing" secondItem="Ivb-LH-syN" secondAttribute="trailing" constant="20" id="Y8M-nj-sSG"/>
-                            <constraint firstItem="hNu-Be-V36" firstAttribute="trailing" secondItem="DHh-vy-tEh" secondAttribute="trailing" constant="70" id="arP-9a-bzI"/>
-                            <constraint firstItem="hNu-Be-V36" firstAttribute="bottom" secondItem="DHh-vy-tEh" secondAttribute="bottom" constant="48" id="eNK-M3-OTZ"/>
+                            <constraint firstItem="WfQ-yv-HQP" firstAttribute="top" secondItem="Shf-XI-k5f" secondAttribute="bottom" id="e71-6k-JPs"/>
+                            <constraint firstItem="hNu-Be-V36" firstAttribute="trailing" secondItem="WfQ-yv-HQP" secondAttribute="trailing" constant="158" id="ie2-Zo-Atu"/>
                             <constraint firstItem="gSn-f4-wpq" firstAttribute="top" secondItem="hNu-Be-V36" secondAttribute="top" constant="47" id="lsI-jo-0j7"/>
                             <constraint firstItem="Ivb-LH-syN" firstAttribute="top" secondItem="hNu-Be-V36" secondAttribute="top" constant="85" id="omw-HC-pzP"/>
                             <constraint firstItem="hNu-Be-V36" firstAttribute="bottom" secondItem="s8S-ef-qdV" secondAttribute="bottom" constant="63" id="yDH-07-rOG"/>
@@ -701,7 +728,7 @@
         <!--Admin Active Causes View Controller-->
         <scene sceneID="QIu-el-UdG">
             <objects>
-                <viewController id="eLO-vN-RdP" customClass="AdminActiveCausesViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="adminActiveViewController" id="eLO-vN-RdP" customClass="AdminActiveCausesViewController" customModule="Traccs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V2G-fd-ab2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -985,7 +1012,7 @@
         <!--Navigation Controller-->
         <scene sceneID="vxj-Fe-2Va">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cj3-Q5-61q" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationController" automaticallyAdjustsScrollViewInsets="NO" id="Cj3-Q5-61q" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cxC-73-vbX">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1003,7 +1030,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="aJi-2e-xfJ">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="WDS-7I-L2e" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="userTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="WDS-7I-L2e" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mTO-S3-oAg">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -1022,7 +1049,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="yi4-xb-I0H">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="mFa-dE-qTG" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="adminTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="mFa-dE-qTG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dq4-fI-lcC">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
