@@ -17,6 +17,7 @@ class UserCausesDetailViewController: UIViewController {
     @IBOutlet weak var UDetailImageView: UIImageView!
     @IBOutlet weak var UDetailLabel: UILabel!
     @IBOutlet weak var UDetailTextView: UITextView!
+    @IBOutlet weak var donateTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpPage()
@@ -45,13 +46,25 @@ class UserCausesDetailViewController: UIViewController {
         guard let causeTitle = UDetailLabel.text,
         let causeDescription = UDetailTextView.text,
         let causeImage = UDetailImageView.image,
-            !causeTitle.isEmpty, !causeDescription.isEmpty else {
+        let donationAmount = donateTextField.text,
+            !causeTitle.isEmpty, !causeDescription.isEmpty, !donationAmount.isEmpty else {
                 return
                 
         }
-        
-        //DatabaseManager.firebaseDB
-          //  .collection("")
+        DatabaseManager.firebaseDB
+            .collection("donations")
+            .addDocument(data: ["causeTitle"        : causeTitle,
+                                "causeDescription"  : causeDescription,
+                                "causeImageURL"     : "",
+                                "causeId"           : "",
+                                "donationAmount"    : donationAmount
+            ]) { (error) in
+                if let error = error {
+                    print("dontation posting error: \(error.localizedDescription)")
+                } else {
+                    print("donations post successufully")
+                }
+        }
 
         
         //        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)

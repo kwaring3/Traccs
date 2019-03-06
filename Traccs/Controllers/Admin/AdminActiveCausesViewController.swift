@@ -75,7 +75,7 @@ extension AdminActiveCausesViewController: UICollectionViewDataSource, UICollect
         let photoToSet = causeInfo[indexPath.row]
         cell.titleLabel.text = causeInfo[indexPath.row].title
         cell.activeImageView.image = UIImage(data: photoToSet.image)
-        cell.backgroundColor = .white
+        //cell.backgroundColor = .white
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
         return cell
