@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import FirebaseStorage
+
 
 class AdminCreateCauseViewController: UIViewController {
 
     
     var indexNum: Int!
     var imageSelected: UIImage!
+    private var usersession: UserSession!
+    private var storageManager: StorageManager!
     private var imagePicker: UIImagePickerController!
     
     @IBOutlet weak var createButton: UIButton!
@@ -23,6 +28,14 @@ class AdminCreateCauseViewController: UIViewController {
         super.viewDidLoad()
         imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+        
+        // getting instance from AppDelegate
+        usersession = (UIApplication.shared.delegate as! AppDelegate).userSession
+        storageManager = (UIApplication.shared.delegate as! AppDelegate).storageManager
+        
+        
+        
+        storageManager.delegate = self
 
         
     }
@@ -40,27 +53,52 @@ class AdminCreateCauseViewController: UIViewController {
         
     }
     private func save() {
-    if let deleteFile = indexNum {
-        DataPersistenceModel.deleteQuiz(index: deleteFile)
-    }
-        guard let textTitle = self.createTextField.text else {
-    fatalError("nil")}
-    let date = Date()
-    let isoDateFormatter = ISO8601DateFormatter()
-    isoDateFormatter.formatOptions = [.withFullDate, .withFullTime, .withInternetDateTime, .withTimeZone, .withDashSeparatorInDate]
-    let timeStamp = isoDateFormatter.string(from: date)
-    
-    if let imageData = createImageView.image?.jpegData(compressionQuality: 0.5){
-        if let text = createTextView.text {
-            let photo = AdminCause.init(image: imageData, title: textTitle, causeDescription: text, createdAt: timeStamp)
-            DataPersistenceModel.add1(cause: photo)
-            dismiss(animated: true, completion: nil)
-        }
+        guard let causeImage = createImageView.image?.jpegData(compressionQuality: 0.5) else {return}
+        storageManager.postImage(withData: causeImage)
+//        guard let causeTitle = createTextView.text,
+//            let causeDescription = createTextField.text,
+//            let causeImage = createImageView.image?.jpegData(compressionQuality: 0.5),
+//
+//            !causeTitle.isEmpty, !causeDescription.isEmpty else {
+//                return
+//
+//        }
+//        DatabaseManager.firebaseDB
+//            .collection("causes")
+//            .addDocument(data: ["causeTitle"        : causeTitle,
+//                                "causeDescription"  : causeDescription,
+//                                "causeImageURL"     : causeImage,
+//                                "causeId"           : ""
+//
+//            ]) { (error) in
+//                if let error = error {
+//                    print("dontation posting error: \(error.localizedDescription)")
+//                } else {
+//                    print("donations post successufully")
+//                }
+//        }
 
-        
-    } else {
-    dismiss(animated: true, completion: nil)
-    }
+//    if let deleteFile = indexNum {
+//        DataPersistenceModel.deleteQuiz(index: deleteFile)
+//    }
+//        guard let textTitle = self.createTextField.text else {
+//    fatalError("nil")}
+//    let date = Date()
+//    let isoDateFormatter = ISO8601DateFormatter()
+//    isoDateFormatter.formatOptions = [.withFullDate, .withFullTime, .withInternetDateTime, .withTimeZone, .withDashSeparatorInDate]
+//    let timeStamp = isoDateFormatter.string(from: date)
+//
+//    if let imageData = createImageView.image?.jpegData(compressionQuality: 0.5){
+//        if let text = createTextView.text {
+//            let photo = AdminCause.init(image: imageData, title: textTitle, causeDescription: text, createdAt: timeStamp)
+//            DataPersistenceModel.add1(cause: photo)
+//            dismiss(animated: true, completion: nil)
+//        }
+//
+//
+//    } else {
+//    dismiss(animated: true, completion: nil)
+//    }
 }
     private func cancel() {
         dismiss(animated: true, completion: nil)
@@ -69,7 +107,7 @@ class AdminCreateCauseViewController: UIViewController {
     
     @IBAction func createButtonPressed(_ sender: UIButton) {
          save()
-        reset()
+        //reset()
         self.createImageView.image = (UIImage(named: "placeholder-image-2"))
     }
     @IBAction func imageButtonPressed(_ sender: UIButton) {
@@ -94,6 +132,34 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
         
     }
     
+}
+extension AdminCreateCauseViewController: StorageManagerDelegate {
+    func didFetchImage(_ storageManager: StorageManager, imageURL: URL) {
+        usersession.updateUser(displayName: nil, photoURL: imageURL)
+        guard let causeTitle = createTextView.text,
+            let causeDescription = createTextField.text,
+            
+            
+            !causeTitle.isEmpty, !causeDescription.isEmpty else {
+                return
+                
+        }
+        DatabaseManager.firebaseDB
+            .collection("causes")
+            .addDocument(data: ["causeTitle"        : causeTitle,
+                                "causeDescription"  : causeDescription,
+                                "causeImageURL"     : imageURL.absoluteString,
+                                "causeId"           : ""
+                
+            ]) { (error) in
+                if let error = error {
+                    print("dontation posting error: \(error.localizedDescription)")
+                } else {
+                    print("donations post successufully")
+                }
+        }
+        reset()
+    }
 }
 
     

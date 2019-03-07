@@ -10,7 +10,7 @@ import UIKit
 
 class UserDonationsDetailViewController: UIViewController {
 
-    var create: AdminCause!
+    var create: Donate!
     var updates1 =  [Update]() {
         didSet{
             DispatchQueue.main.async {
@@ -19,17 +19,28 @@ class UserDonationsDetailViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var detailTextView: UITextView!
+    @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var updatesTableView: UITableView!
+    @IBOutlet weak var amountLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updatesTableView.dataSource = self
-
+        setupPage()
+        print(self.create.donationAmount)
+    }
+    private func setupPage() {
+        self.detailLabel.text = create.causeTitle
+        self.detailTextView.text = create.causeDescription
+        self.amountLabel.text = "You donated: \(self.create.donationAmount)"
         
     }
-    
 
-   
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 
 }
 extension UserDonationsDetailViewController: UITableViewDataSource {
@@ -45,14 +56,7 @@ extension UserDonationsDetailViewController: UITableViewDataSource {
                                reuseIdentifier: "UpdatesCell")
         cell.textLabel?.text = updates1[indexPath.row].updatesTitle
         
-//        if let dtl = create.causeDescription {
-//            cell.detailTextLabel?.text = updates1[indexPath.row].updates
-//        } else {
-//            cell.detailTextLabel?.text = "N/A"
-//        }
          cell.detailTextLabel?.text = updates1[indexPath.row].updates
-            
-            
         
         return cell
     }

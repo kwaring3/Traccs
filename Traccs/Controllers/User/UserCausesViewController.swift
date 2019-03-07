@@ -46,8 +46,8 @@ extension UserCausesViewController: UICollectionViewDataSource, UICollectionView
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCauseCell", for: indexPath) as? UserCausesCollectionViewCell else {return UICollectionViewCell()}
         let photoToSet = UCauses[indexPath.row]
         cell.userCausesLabel.text = UCauseInfo[indexPath.row].title
-        cell.userCausesImage.image = UIImage(data: photoToSet.image)
-        cell.backgroundColor = .white
+        //cell.userCausesImage.image = UIImage(data: photoToSet.image)
+        //cell.backgroundColor = .white
         //        cell.button.tag = indexPath.row
         //        cell.button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
         cell.layer.borderColor = UIColor.black.cgColor
@@ -59,8 +59,10 @@ extension UserCausesViewController: UICollectionViewDataSource, UICollectionView
         guard let userCausesDetail = storyboard.instantiateViewController(withIdentifier: "userCausesDetailViewController") as? UserCausesDetailViewController else {print("NO VC")
             return
         }
+        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? UserCausesCollectionViewCell else {return}
+        
         let UCauseInfoToSend = UCauses[indexPath.row]
-        userCausesDetail.UCauseInfo = UCauseInfoToSend
+        //userCausesDetail.UCauseInfo = UCauseInfoToSend
         userCausesDetail.modalPresentationStyle = .fullScreen
         present(userCausesDetail, animated: true, completion: nil)
         

@@ -79,4 +79,35 @@ final class UserSession {
             userSessionSignOutDelegate?.didRecieveSignOutError(self, error: error)
         }
     }
+    public func updateUser(displayName: String?, photoURL: URL?) {
+        guard let user = getCurrentUser() else {
+            print("no logged user")
+            return
+        }
+        let request = user.createProfileChangeRequest()
+        request.displayName = displayName
+        request.photoURL = photoURL
+        request.commitChanges { (error) in
+            if let error = error {
+                print("error: \(error)")
+            } else {
+                // update database user as well
+                guard let photoURL = photoURL else {
+                    print("no photoURL")
+                    return
+                }
+                DatabaseManager.firebaseDB
+                    .collection(DatabaseKeys.UsersCollectionKey)
+                    .document(user.uid) // making the user document id the same as the auth userId makes it easy to update the user doc
+                    .updateData(["imageURL": photoURL.absoluteString], completion: { (error) in
+                        guard let error = error else {
+                            print("successfully ")
+                            return
+                        }
+                        print("updating photo url error: \(error.localizedDescription)")
+                        
+                    })
+            }
+        }
+    }
 }

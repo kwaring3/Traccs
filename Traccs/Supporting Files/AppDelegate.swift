@@ -16,12 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var userSession: UserSession!
+    var storageManager: StorageManager!
 
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
+        storageManager = StorageManager()
         userSession = UserSession()
         
         window = UIWindow(frame: UIScreen.main.bounds)

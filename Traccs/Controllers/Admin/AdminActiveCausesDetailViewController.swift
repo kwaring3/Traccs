@@ -50,7 +50,7 @@ class AdminActiveCausesDetailViewController: UIViewController {
             detailTextView.text = "N/A"
         }
         //self.detailTextView.text = causeInfo?.causeDescription
-        self.detailImageView.image = (UIImage(data: (causeInfo?.image)!))
+        //self.detailImageView.image = (UIImage(data: (causeInfo?.image)!))
         self.updateTextView.text = "Enter Update Here"
 
     }

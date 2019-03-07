@@ -34,6 +34,11 @@
 		1FDA8F29222F0405009FEF9A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F28222F0404009FEF9A /* DatabaseManager.swift */; };
 		1FDA8F2B222F0447009FEF9A /* DatabaseKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F2A222F0447009FEF9A /* DatabaseKeys.swift */; };
 		1FDA8F2D222F1960009FEF9A /* UserMetricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F2C222F1960009FEF9A /* UserMetricsViewController.swift */; };
+		1FDA8F2F22317FE8009FEF9A /* ImageHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F2E22317FE8009FEF9A /* ImageHelper.swift */; };
+		1FDA8F3122318026009FEF9A /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F3022318025009FEF9A /* AppError.swift */; };
+		1FDA8F332231806D009FEF9A /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F322231806C009FEF9A /* NetworkHelper.swift */; };
+		1FDA8F352231BB6E009FEF9A /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F342231BB6E009FEF9A /* StorageManager.swift */; };
+		1FDA8F372231BBB4009FEF9A /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA8F362231BBB4009FEF9A /* StorageKeys.swift */; };
 		1FED610022248337000492B9 /* AdminCause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED60FF22248337000492B9 /* AdminCause.swift */; };
 		1FED610322248574000492B9 /* DataPersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED610222248574000492B9 /* DataPersistenceManager.swift */; };
 		1FED6105222486EC000492B9 /* DataPersistenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FED6104222486EC000492B9 /* DataPersistenceModel.swift */; };
@@ -72,6 +77,11 @@
 		1FDA8F28222F0404009FEF9A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		1FDA8F2A222F0447009FEF9A /* DatabaseKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseKeys.swift; sourceTree = "<group>"; };
 		1FDA8F2C222F1960009FEF9A /* UserMetricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMetricsViewController.swift; sourceTree = "<group>"; };
+		1FDA8F2E22317FE8009FEF9A /* ImageHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageHelper.swift; sourceTree = "<group>"; };
+		1FDA8F3022318025009FEF9A /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		1FDA8F322231806C009FEF9A /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		1FDA8F342231BB6E009FEF9A /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		1FDA8F362231BBB4009FEF9A /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
 		1FED60FF22248337000492B9 /* AdminCause.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminCause.swift; sourceTree = "<group>"; };
 		1FED610222248574000492B9 /* DataPersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceManager.swift; sourceTree = "<group>"; };
 		1FED6104222486EC000492B9 /* DataPersistenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPersistenceModel.swift; sourceTree = "<group>"; };
@@ -128,6 +138,8 @@
 				1FDA8F23222EE258009FEF9A /* UserSession.swift */,
 				1FDA8F28222F0404009FEF9A /* DatabaseManager.swift */,
 				1FDA8F2A222F0447009FEF9A /* DatabaseKeys.swift */,
+				1FDA8F342231BB6E009FEF9A /* StorageManager.swift */,
+				1FDA8F362231BBB4009FEF9A /* StorageKeys.swift */,
 				1FDA8F27222EE5DA009FEF9A /* View */,
 				1FED610B2224909A000492B9 /* File Managers and Date Files */,
 				1FED61062224884F000492B9 /* Supporting Files */,
@@ -202,6 +214,9 @@
 				1F002964220CD884002BE5A3 /* AppDelegate.swift */,
 				1F00296B220CD885002BE5A3 /* Assets.xcassets */,
 				1F00296D220CD885002BE5A3 /* LaunchScreen.storyboard */,
+				1FDA8F2E22317FE8009FEF9A /* ImageHelper.swift */,
+				1FDA8F3022318025009FEF9A /* AppError.swift */,
+				1FDA8F322231806C009FEF9A /* NetworkHelper.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -362,7 +377,9 @@
 			files = (
 				1FDA8F1A222D7368009FEF9A /* DonateModel.swift in Sources */,
 				1F39D75A221619410089F641 /* UserCausesDetailViewController.swift in Sources */,
+				1FDA8F3122318026009FEF9A /* AppError.swift in Sources */,
 				1FDA8F29222F0405009FEF9A /* DatabaseManager.swift in Sources */,
+				1FDA8F332231806D009FEF9A /* NetworkHelper.swift in Sources */,
 				1FED610822248FCF000492B9 /* Date + Extensions.swift in Sources */,
 				1F39D71E221226330089F641 /* AdminMetricsViewController.swift in Sources */,
 				1FDA8F20222DC15A009FEF9A /* UserDonatedViewController.swift in Sources */,
@@ -382,12 +399,15 @@
 				1F39D75C221619650089F641 /* UserDonationsDetailViewController.swift in Sources */,
 				1F0ACD622225D1EF00282C97 /* AdminActiveCausesCollectionViewCell.swift in Sources */,
 				1FED6105222486EC000492B9 /* DataPersistenceModel.swift in Sources */,
+				1FDA8F372231BBB4009FEF9A /* StorageKeys.swift in Sources */,
 				1FDA8F26222EE5B8009FEF9A /* AdminLoginView.swift in Sources */,
 				1FDA8F18222998AF009FEF9A /* UpdateModel.swift in Sources */,
 				1F39D754221615850089F641 /* AdminCreateCauseViewController.swift in Sources */,
+				1FDA8F2F22317FE8009FEF9A /* ImageHelper.swift in Sources */,
 				1FDA8F2B222F0447009FEF9A /* DatabaseKeys.swift in Sources */,
 				1FDA8F1C222D74B3009FEF9A /* DonationsCollectionViewCell.swift in Sources */,
 				1FED610022248337000492B9 /* AdminCause.swift in Sources */,
+				1FDA8F352231BB6E009FEF9A /* StorageManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

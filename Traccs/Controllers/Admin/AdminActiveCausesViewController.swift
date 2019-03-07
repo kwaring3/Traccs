@@ -27,6 +27,13 @@ class AdminActiveCausesViewController: UIViewController {
         activeCollectionView.dataSource = self
         activeCollectionView.delegate = self
         causeInfo = DataPersistenceModel.get()
+        DatabaseManager.firebaseDB.collection("causes").getDocuments { (data, error) in
+            guard let cause1 = data else {return}
+            
+            for item in cause1.documents {
+                self.causeInfo.append(AdminCause.init(dict: item.data()))
+        }
+        }
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -73,9 +80,17 @@ extension AdminActiveCausesViewController: UICollectionViewDataSource, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActiveCell", for: indexPath) as? AdminActiveCausesCollectionViewCell else {return UICollectionViewCell()}
         let photoToSet = causeInfo[indexPath.row]
-        cell.titleLabel.text = causeInfo[indexPath.row].title
-        cell.activeImageView.image = UIImage(data: photoToSet.image)
-        //cell.backgroundColor = .white
+        cell.titleLabel.text = photoToSet.title
+        ImageHelper.fetchImageFromNetwork(urlString:photoToSet.image.absoluteString ?? "") { (error, image) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                }else if let image = image {
+                    cell.activeImageView.image = image
+                }
+            }
+        }
+        //cell.activeImageView.image = UIImage(data: photoToSet.image)
         cell.layer.borderColor = UIColor.black.cgColor
         cell.layer.borderWidth = 1
         return cell
