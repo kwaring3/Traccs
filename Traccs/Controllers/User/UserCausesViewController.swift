@@ -12,7 +12,7 @@ class UserCausesViewController: UIViewController {
 
     @IBOutlet weak var userCauseCollectionView: UICollectionView!
     
-    var UCauses = DataPersistenceModel.get()
+    //var UCauses = DataPersistenceModel.get()
     var UCauseInfo = [AdminCause]() {
         didSet{
             DispatchQueue.main.async {
@@ -27,10 +27,17 @@ class UserCausesViewController: UIViewController {
         userCauseCollectionView.dataSource = self
         userCauseCollectionView.delegate = self
         UCauseInfo = DataPersistenceModel.get()
+        DatabaseManager.firebaseDB.collection("causes").getDocuments { (data, error) in
+            guard let cause1 = data else {return}
+            
+            for item in cause1.documents {
+                self.UCauseInfo.append(AdminCause.init(dict: item.data()))
+            }
+        }
         
     }
     func reload() {
-        UCauses = DataPersistenceModel.get()
+        UCauseInfo = DataPersistenceModel.get()
         userCauseCollectionView.reloadData()
     }
     
@@ -44,8 +51,17 @@ extension UserCausesViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "userCauseCell", for: indexPath) as? UserCausesCollectionViewCell else {return UICollectionViewCell()}
-        let photoToSet = UCauses[indexPath.row]
+        let photoToSet = UCauseInfo[indexPath.row]
         cell.userCausesLabel.text = UCauseInfo[indexPath.row].title
+        ImageHelper.fetchImageFromNetwork(urlString:photoToSet.image.absoluteString ?? "") { (error, image) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                }else if let image = image {
+                    cell.userCausesImage.image = image
+                }
+            }
+        }
         //cell.userCausesImage.image = UIImage(data: photoToSet.image)
         //cell.backgroundColor = .white
         //        cell.button.tag = indexPath.row
@@ -59,10 +75,10 @@ extension UserCausesViewController: UICollectionViewDataSource, UICollectionView
         guard let userCausesDetail = storyboard.instantiateViewController(withIdentifier: "userCausesDetailViewController") as? UserCausesDetailViewController else {print("NO VC")
             return
         }
-        guard let selectedCell = collectionView.cellForItem(at: indexPath) as? UserCausesCollectionViewCell else {return}
-        
-        let UCauseInfoToSend = UCauses[indexPath.row]
-        //userCausesDetail.UCauseInfo = UCauseInfoToSend
+       // guard let selectedCell = collectionView.cellForItem(at: indexPath) as? UserCausesCollectionViewCell else {return}
+
+        let UCauseInfoToSend = UCauseInfo[indexPath.row]
+        userCausesDetail.Ucauses = UCauseInfoToSend
         userCausesDetail.modalPresentationStyle = .fullScreen
         present(userCausesDetail, animated: true, completion: nil)
         

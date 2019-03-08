@@ -14,6 +14,7 @@ struct AdminCause: Codable {
     let title: String
     let causeDescription: String?
     let createdAt: String
+    let documentID: String
     //let update1: [Update]
     
     init(dict: [String: Any]) {
@@ -22,6 +23,7 @@ struct AdminCause: Codable {
         self.createdAt = dict["createdAt"] as? String ?? "no date"
         self.causeDescription = dict["causeDescription"] as? String ?? "no description"
         self.title = dict["causeTitle"] as? String ?? "no title"
+        self.documentID = dict["documentID"] as? String ?? "no title"
         
     }
 }

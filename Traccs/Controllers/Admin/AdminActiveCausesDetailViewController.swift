@@ -49,6 +49,15 @@ class AdminActiveCausesDetailViewController: UIViewController {
         } else {
             detailTextView.text = "N/A"
         }
+        ImageHelper.fetchImageFromNetwork(urlString:causeInfo?.image.absoluteString ?? "") { (error, image) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                }else if let image = image {
+                    self.detailImageView.image = image
+                }
+            }
+        }
         //self.detailTextView.text = causeInfo?.causeDescription
         //self.detailImageView.image = (UIImage(data: (causeInfo?.image)!))
         self.updateTextView.text = "Enter Update Here"

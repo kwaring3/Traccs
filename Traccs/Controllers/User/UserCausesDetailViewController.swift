@@ -11,7 +11,7 @@ import FirebaseFirestore
 
 class UserCausesDetailViewController: UIViewController {
 
-    
+    var Ucauses: AdminCause?
     var UCauseInfo: Donate?
     var picture: UIImage?
     
@@ -26,9 +26,18 @@ class UserCausesDetailViewController: UIViewController {
     }
     
     private func setUpPage() {
-        self.UDetailLabel.text = UCauseInfo?.causeTitle
-        self.UDetailTextView.text = UCauseInfo?.causeDescription
-        self.UDetailImageView.image = picture!
+        self.UDetailLabel.text = Ucauses?.title
+        self.UDetailTextView.text = Ucauses?.causeDescription
+        //self.UDetailImageView.image = picture!
+        ImageHelper.fetchImageFromNetwork(urlString:Ucauses?.image.absoluteString ?? "") { (error, image) in
+            DispatchQueue.main.async {
+                if let error = error {
+                    print(error)
+                }else if let image = image {
+                    self.UDetailImageView.image = image
+                }
+            }
+        }
         
     }
     

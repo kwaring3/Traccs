@@ -24,6 +24,20 @@ final class DatabaseManager {
         return db
     }()
     
+//    db.collection("cities").document("DC").delete() { err in
+//    if let err = err {
+//    print("Error removing document: \(err)")
+//    } else {
+//    print("Document successfully removed!")
+//    }
+//    }
+    
+    
+    
+    
+    
+    
+    
 //    static func postRaceReviewToDatabase(raceReview: RaceReview) {
 //        var ref: DocumentReference? = nil
 //        ref = firebaseDB.collection(DatabaseKeys.RaceReviewCollectionKey).addDocument(data: [

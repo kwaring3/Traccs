@@ -108,7 +108,7 @@ class AdminCreateCauseViewController: UIViewController {
     @IBAction func createButtonPressed(_ sender: UIButton) {
          save()
         //reset()
-        self.createImageView.image = (UIImage(named: "placeholder-image-2"))
+        //self.createImageView.image = (UIImage(named: "placeholder-image-2"))
     }
     @IBAction func imageButtonPressed(_ sender: UIButton) {
         imagePicker.sourceType = .photoLibrary
@@ -136,8 +136,8 @@ UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 extension AdminCreateCauseViewController: StorageManagerDelegate {
     func didFetchImage(_ storageManager: StorageManager, imageURL: URL) {
         usersession.updateUser(displayName: nil, photoURL: imageURL)
-        guard let causeTitle = createTextView.text,
-            let causeDescription = createTextField.text,
+        guard let causeTitle = createTextField.text,
+            let causeDescription = createTextView.text,
             
             
             !causeTitle.isEmpty, !causeDescription.isEmpty else {
@@ -158,7 +158,7 @@ extension AdminCreateCauseViewController: StorageManagerDelegate {
                     print("donations post successufully")
                 }
         }
-        reset()
+        //reset()
     }
 }
 

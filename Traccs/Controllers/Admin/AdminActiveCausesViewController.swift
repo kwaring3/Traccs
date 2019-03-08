@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AdminActiveCausesViewController: UIViewController {
 
@@ -22,11 +23,14 @@ class AdminActiveCausesViewController: UIViewController {
         }
         
     }
+    var listener: ListenerRegistration!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         activeCollectionView.dataSource = self
         activeCollectionView.delegate = self
-        causeInfo = DataPersistenceModel.get()
+       // causeInfo = DataPersistenceModel.get()
         DatabaseManager.firebaseDB.collection("causes").getDocuments { (data, error) in
             guard let cause1 = data else {return}
             
@@ -37,12 +41,18 @@ class AdminActiveCausesViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        reload()
+        //reload()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        //reload()
     }
     func reload() {
         causeInfo = DataPersistenceModel.get()
         activeCollectionView.reloadData()
     }
+    
+    
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        guard let indexPath = activeCollectionView.indexpath  let destination = segue.destination as? AdminActiveCausesDetailViewController else {fatalError("index path nil")}
@@ -81,7 +91,7 @@ extension AdminActiveCausesViewController: UICollectionViewDataSource, UICollect
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ActiveCell", for: indexPath) as? AdminActiveCausesCollectionViewCell else {return UICollectionViewCell()}
         let photoToSet = causeInfo[indexPath.row]
         cell.titleLabel.text = photoToSet.title
-        ImageHelper.fetchImageFromNetwork(urlString:photoToSet.image.absoluteString ?? "") { (error, image) in
+        ImageHelper.fetchImageFromNetwork(urlString:photoToSet.image.absoluteString ) { (error, image) in
             DispatchQueue.main.async {
                 if let error = error {
                     print(error)
