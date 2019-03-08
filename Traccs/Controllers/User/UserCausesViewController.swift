@@ -66,8 +66,8 @@ extension UserCausesViewController: UICollectionViewDataSource, UICollectionView
         //cell.backgroundColor = .white
         //        cell.button.tag = indexPath.row
         //        cell.button.addTarget(self, action: #selector(buttonPressed(sender:)), for: .touchUpInside)
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
+//        cell.layer.borderColor = UIColor.black.cgColor
+//        cell.layer.borderWidth = 1
         return cell
 }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

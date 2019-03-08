@@ -34,9 +34,17 @@ class AdminActiveCausesViewController: UIViewController {
         DatabaseManager.firebaseDB.collection("causes").getDocuments { (data, error) in
             guard let cause1 = data else {return}
             
+            //self.causeInfo.removeAll()
+            
             for item in cause1.documents {
                 self.causeInfo.append(AdminCause.init(dict: item.data()))
         }
+            self.causeInfo.sort(by: { (firstCause, secondCause) -> Bool in
+                let format = ISO8601DateFormatter()
+                guard let firstDate = format.date(from: firstCause.createdAt),
+                let secondDate = format.date(from: secondCause.createdAt) else {return false}
+                return firstDate > secondDate 
+            })
         }
         
     }
@@ -110,8 +118,8 @@ extension AdminActiveCausesViewController: UICollectionViewDataSource, UICollect
             }
         }
         //cell.activeImageView.image = UIImage(data: photoToSet.image)
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
+        //cell.layer.borderColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        //cell.layer.borderWidth = 1
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

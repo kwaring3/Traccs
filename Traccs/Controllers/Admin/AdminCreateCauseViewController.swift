@@ -152,7 +152,8 @@ extension AdminCreateCauseViewController: StorageManagerDelegate {
             .addDocument(data: ["causeTitle"        : causeTitle,
                                 "causeDescription"  : causeDescription,
                                 "causeImageURL"     : imageURL.absoluteString,
-                                "causeId"           : ""
+                                "causeId"           : ""  ,
+                                "createdAt"         : Date.getISOTimestamp()
                 
             ]) { (error) in
                 if let error = error {
@@ -161,7 +162,8 @@ extension AdminCreateCauseViewController: StorageManagerDelegate {
                     print("donations post successufully")
                 }
         }
-        //reset()
+        reset()
+        self.createImageView.image = (UIImage(named: "placeholder-image-2"))
     }
 }
 

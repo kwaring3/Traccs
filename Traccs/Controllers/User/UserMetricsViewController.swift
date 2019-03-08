@@ -28,4 +28,7 @@ class UserMetricsViewController: UIViewController {
     }
     */
 
+    @IBAction func backButtonPressed(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
 }

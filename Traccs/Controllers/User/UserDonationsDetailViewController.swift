@@ -33,7 +33,7 @@ class UserDonationsDetailViewController: UIViewController {
     private func setupPage() {
         self.detailLabel.text = create.causeTitle
         self.detailTextView.text = create.causeDescription
-        self.amountLabel.text = "You donated: \(self.create.donationAmount)"
+        self.amountLabel.text = "You donated: \(self.create.donationAmount) Dollars"
         
     }
 

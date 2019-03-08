@@ -85,8 +85,8 @@ extension UserDonationsViewController: UICollectionViewDataSource, UICollectionV
 //        imageForCell(indexPath: indexPath) { (image) in
 //            cell.donationsImageView.image = image
 //        }
-        cell.layer.borderColor = UIColor.black.cgColor
-        cell.layer.borderWidth = 1
+//        cell.layer.borderColor = UIColor.yellow.cgColor
+//        cell.layer.borderWidth = 1
         return cell
             
     }
