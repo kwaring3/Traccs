@@ -147,13 +147,15 @@ extension AdminCreateCauseViewController: StorageManagerDelegate {
                 return
                 
         }
+        let newTimeStamp = Date.getISOTimestamp()
         DatabaseManager.firebaseDB
             .collection("causes")
-            .addDocument(data: ["causeTitle"        : causeTitle,
+            .document(newTimeStamp)
+            .setData( ["causeTitle"        : causeTitle,
                                 "causeDescription"  : causeDescription,
                                 "causeImageURL"     : imageURL.absoluteString,
                                 "causeId"           : ""  ,
-                                "createdAt"         : Date.getISOTimestamp()
+                                "createdAt"         : newTimeStamp
                 
             ]) { (error) in
                 if let error = error {

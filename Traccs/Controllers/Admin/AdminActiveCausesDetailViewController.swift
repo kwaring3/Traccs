@@ -10,11 +10,27 @@ import UIKit
 
 class AdminActiveCausesDetailViewController: UIViewController {
 
-    public var create: AdminCause!
-    var causes = DataPersistenceModel.get()
-    var causeInfo: AdminCause?
+    public var create: AdminCause!{
+        didSet {
+            if updateTableView != nil {
+                update = create.update1.sorted { (firstPair, secondPair) -> Bool in
+                    let format = DateFormatter()
+                    guard let firstTimestamp = format.date(from: firstPair.key),
+                        let secondTimestamp = format.date(from: secondPair.key) else {return false}
+                    return firstTimestamp < secondTimestamp
+                }
+
+            }
+        }
+    }
     
-    var update =  [Update]() {
+    var causes = DataPersistenceModel.get()
+    
+    var usersession: UserSession!
+    var neededURL: URL!
+
+    
+    var update =  [(String , String)]() {
         didSet{
             DispatchQueue.main.async {
                 self.updateTableView.reloadData()
@@ -35,6 +51,12 @@ class AdminActiveCausesDetailViewController: UIViewController {
         updateTableView.dataSource = self
         updateTableView.delegate = self
         setupPage()
+        update = create.update1.sorted { (firstPair, secondPair) -> Bool in
+            let format = DateFormatter()
+          guard let firstTimestamp = format.date(from: firstPair.key),
+            let secondTimestamp = format.date(from: secondPair.key) else {return false}
+            return firstTimestamp < secondTimestamp
+        }
 
 
 
@@ -42,14 +64,14 @@ class AdminActiveCausesDetailViewController: UIViewController {
     }
     
     private func setupPage() {
-        self.detailLabel.text = causeInfo?.title
+        self.detailLabel.text = create.title
 
-        if let words = causeInfo?.causeDescription {
+        if let words = create.causeDescription {
             detailTextView.text = "\(words)"
         } else {
             detailTextView.text = "N/A"
         }
-        ImageHelper.fetchImageFromNetwork(urlString:causeInfo?.image.absoluteString ?? "") { (error, image) in
+        ImageHelper.fetchImageFromNetwork(urlString:create.image.absoluteString ?? "") { (error, image) in
             DispatchQueue.main.async {
                 if let error = error {
                     print(error)
@@ -66,15 +88,61 @@ class AdminActiveCausesDetailViewController: UIViewController {
     
     
     public func save() {
-
-        if let textTitle = self.updateTextView.text {
-            if let textTitle1 = self.updateTextField.text {
-            let newUpdate = Update.init(updatesTitle: textTitle1, updates: textTitle)
-        update.append(newUpdate)
+        let timeStamp = Date.getISOTimestamp()
+        
+        guard let causeTitle = detailLabel.text,
+            let causeDescription = detailTextView.text,
+//            let updateTitle = create.createdAt,
+            let updateDescription = updateTextView.text,
+            
+            
+            
+            !causeTitle.isEmpty, !causeDescription.isEmpty else {
+                return
         }
+        create.update1[timeStamp] = updateDescription
+       
+        DatabaseManager.firebaseDB.collection("causes").document(create.createdAt).setData(["causeTitle" : causeTitle,
+                                                                     "causeDescription" : causeDescription,
+                                                                     "causeImageURL" : create.image.description,
+                                                                     "createdAt" : create.createdAt,
+                                                                     "update1" : create.update1
+                                                                     ]) { (error) in
+                                                                        if let error = error {
+                                                                                                print("dontation posting error: \(error.localizedDescription)")
+                                                                                            } else {
+                                                                                                print("donations post successufully")
+                                                                                            }
         }
         
+//        DatabaseManager.firebaseDB
+//            .collection("causes")
+//            .addDocument(data: ["causeTitle"        : causeTitle,
+//                                "causeDescription"  : causeDescription,
+//                                "causeImageURL"     : detailImageView.absoluteString,
+//                                "causeId"           : ""  ,
+//                                "createdAt"         : Date.getISOTimestamp(),
+//                                "updateTitle"       : updateTitle,
+//                                "updateDescription" : updateDescription
+//
+//            ]) { (error) in
+//                if let error = error {
+//                    print("dontation posting error: \(error.localizedDescription)")
+//                } else {
+//                    print("donations post successufully")
+//                }
+//        }
+        
     }
+
+//        if let textTitle = self.updateTextView.text {
+//            if let textTitle1 = self.updateTextField.text {
+//            let newUpdate = Update.init(updatesTitle: textTitle1, updates: textTitle)
+//        update.append(newUpdate)
+//        }
+//        }
+        
+    
     
     @IBAction func cancelButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
@@ -98,8 +166,8 @@ extension AdminActiveCausesDetailViewController: UITableViewDataSource, UITableV
         var cell = updateTableView.dequeueReusableCell(withIdentifier: "UpdateCell", for: indexPath as IndexPath)
         cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle,
                                reuseIdentifier: "UpdateCell")
-        cell.textLabel?.text = update[indexPath.row].updatesTitle
-        cell.detailTextLabel?.text =  update[indexPath.row].updates
+        cell.textLabel?.text = update[indexPath.row].0
+        cell.detailTextLabel?.text =  update[indexPath.row].1
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

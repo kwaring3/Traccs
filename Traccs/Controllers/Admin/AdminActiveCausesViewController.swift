@@ -31,10 +31,10 @@ class AdminActiveCausesViewController: UIViewController {
         activeCollectionView.dataSource = self
         activeCollectionView.delegate = self
        // causeInfo = DataPersistenceModel.get()
-        DatabaseManager.firebaseDB.collection("causes").getDocuments { (data, error) in
+        DatabaseManager.firebaseDB.collection("causes").addSnapshotListener { (data, error) in
             guard let cause1 = data else {return}
             
-            //self.causeInfo.removeAll()
+            self.causeInfo.removeAll()
             
             for item in cause1.documents {
                 self.causeInfo.append(AdminCause.init(dict: item.data()))
@@ -127,8 +127,9 @@ extension AdminActiveCausesViewController: UICollectionViewDataSource, UICollect
         guard let adminActiveDetail = storyboard.instantiateViewController(withIdentifier: "adminActiveDetail") as? AdminActiveCausesDetailViewController else {print("NO VC")
             return
         }
+        
         let causeInfoToSend = causeInfo[indexPath.row]
-        adminActiveDetail.causeInfo = causeInfoToSend
+         adminActiveDetail.create = causeInfoToSend
         adminActiveDetail.modalPresentationStyle = .fullScreen
         present(adminActiveDetail, animated: true, completion: nil)
         

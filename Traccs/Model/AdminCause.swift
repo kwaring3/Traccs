@@ -15,7 +15,7 @@ struct AdminCause: Codable {
     let causeDescription: String?
     let createdAt: String
     let documentID: String
-    //let update1: [Update]
+    var update1: [String: String]
     
     init(dict: [String: Any]) {
      let urlString = dict["causeImageURL"] as? String ?? "No image"
@@ -24,6 +24,6 @@ struct AdminCause: Codable {
         self.causeDescription = dict["causeDescription"] as? String ?? "no description"
         self.title = dict["causeTitle"] as? String ?? "no title"
         self.documentID = dict["documentID"] as? String ?? "no title"
-        
+        self.update1 = dict["update1"] as? [String:String] ?? [:]
     }
 }

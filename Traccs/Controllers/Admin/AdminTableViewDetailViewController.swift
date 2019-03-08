@@ -9,7 +9,7 @@
 import UIKit
 
 class AdminTableViewDetailViewController: UIViewController {
-    var update: Update!
+    var update:(String , String)!
     
     @IBOutlet weak var updateLabel: UILabel!
     @IBOutlet weak var updateDescription: UITextView!
@@ -18,8 +18,8 @@ class AdminTableViewDetailViewController: UIViewController {
         super.viewDidLoad()
         
         
-        self.updateLabel.text = update.updatesTitle
-        self.updateDescription.text = update.updates
+        self.updateLabel.text = update.0
+        self.updateDescription.text = update.1
         
         
     }
