@@ -14,14 +14,14 @@ struct Donate {
     let causeDescription: String
     let causeImageURL: String?
     let causeId: String
-    let donationAmount: Double
+    let donationAmount: String
     
     init(dict: [String: Any]) {
         self.causeTitle = dict["causeTitle"] as? String ?? "No Username"
         self.causeDescription = dict["causeDescription"] as? String ?? "no description"
         self.causeImageURL = dict["causeImageURL"] as? String ?? "no URL"
         self.causeId = dict["causeId"] as? String ?? "no cause id"
-        self.donationAmount = dict["donationAmount"] as? Double ?? 0.0 
+        self.donationAmount = dict["donationAmount"] as? String ?? "0.0"
     }
     
 }

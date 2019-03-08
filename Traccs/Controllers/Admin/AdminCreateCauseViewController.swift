@@ -54,7 +54,10 @@ class AdminCreateCauseViewController: UIViewController {
     }
     private func save() {
         guard let causeImage = createImageView.image?.jpegData(compressionQuality: 0.5) else {return}
-        storageManager.postImage(withData: causeImage)
+        guard let causeName = createTextField.text else {return}
+        storageManager.postImage(withData: causeImage, causeTitle: causeName)
+        
+        
 //        guard let causeTitle = createTextView.text,
 //            let causeDescription = createTextField.text,
 //            let causeImage = createImageView.image?.jpegData(compressionQuality: 0.5),

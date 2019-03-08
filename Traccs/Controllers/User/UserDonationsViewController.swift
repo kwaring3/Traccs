@@ -26,9 +26,11 @@ class UserDonationsViewController: UIViewController {
         super.viewDidLoad()
         userDCollectionView.dataSource = self
         userDCollectionView.delegate = self
+       
         DatabaseManager.firebaseDB.collection("donations").addSnapshotListener { (donation, error) in
             guard let donation1 = donation else
             {return}
+            self.userDInfo.removeAll()
     
             for item in donation1.documents {
                 self.userDInfo.append(Donate.init(dict: item.data()))

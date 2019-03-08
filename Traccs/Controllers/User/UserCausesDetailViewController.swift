@@ -50,7 +50,7 @@ class UserCausesDetailViewController: UIViewController {
         
         guard let causeTitle = UDetailLabel.text,
         let causeDescription = UDetailTextView.text,
-        let causeImage = UCauseInfo?.causeImageURL,
+        let causeImage = Ucauses?.image,
         let donationAmount = donateTextField.text,
             !causeTitle.isEmpty, !causeDescription.isEmpty, !donationAmount.isEmpty else {
                 return
@@ -60,7 +60,7 @@ class UserCausesDetailViewController: UIViewController {
             .collection("donations")
             .addDocument(data: ["causeTitle"        : causeTitle,
                                 "causeDescription"  : causeDescription,
-                                "causeImageURL"     : causeImage,
+                                "causeImageURL"     : causeImage.absoluteString,
                                 "causeId"           : "",
                                 "donationAmount"    : donationAmount
             ]) { (error) in

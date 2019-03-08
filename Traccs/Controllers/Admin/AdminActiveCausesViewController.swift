@@ -41,16 +41,25 @@ class AdminActiveCausesViewController: UIViewController {
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        //reload()
+       // loadPage()
         
     }
     override func viewDidAppear(_ animated: Bool) {
         //reload()
     }
-    func reload() {
-        causeInfo = DataPersistenceModel.get()
-        activeCollectionView.reloadData()
+    func loadPage() {
+        DatabaseManager.firebaseDB.collection("causes").getDocuments { (data, error) in
+            guard let cause1 = data else {return}
+            
+            for item in cause1.documents {
+                self.causeInfo.append(AdminCause.init(dict: item.data()))
+            }
+        }
     }
+//    func reload() {
+//        causeInfo = DataPersistenceModel.get()
+//        activeCollectionView.reloadData()
+//    }
     
     
     
@@ -67,7 +76,7 @@ class AdminActiveCausesViewController: UIViewController {
         }
         let delete = UIAlertAction(title: "Delete", style: .destructive) { (UIAlertAction) in
             DataPersistenceModel.deleteQuiz(index: index)
-            self.reload()
+            //self.reload()
             
             
 //            self.causes = DataPersistenceModel.get()

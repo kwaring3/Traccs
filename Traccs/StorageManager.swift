@@ -23,12 +23,12 @@ final class StorageManager {
         return storage.reference()
     }()
     
-    public func postImage(withData data: Data) {
+    public func postImage(withData data: Data, causeTitle: String) {
         guard let user = Auth.auth().currentUser else {
             print("no logged user")
             return
         }
-        let imagesRef = storageRef.child(StorageKeys.ImagesKey)
+        let imagesRef = storageRef.child(StorageKeys.ImagesKey).child(causeTitle)
         let newImageRef = imagesRef.child("\(user.uid).jpg")
         let metadata = StorageMetadata()
         metadata.contentType = "image/jpeg"
