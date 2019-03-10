@@ -9,9 +9,28 @@
 import UIKit
 
 class UserDonationsDetailViewController: UIViewController {
-
+    public var create1: AdminCause!{
+        didSet {
+            if updatesTableView != nil {
+                update = create1.update1.sorted { (firstPair, secondPair) -> Bool in
+                    let format = DateFormatter()
+                    guard let firstTimestamp = format.date(from: firstPair.key),
+                        let secondTimestamp = format.date(from: secondPair.key) else {return false}
+                    return firstTimestamp < secondTimestamp
+                }
+                
+            }
+        }
+    }
     var create: Donate!
     var updates1 =  [Update]() {
+        didSet{
+            DispatchQueue.main.async {
+                self.updatesTableView.reloadData()
+            }
+        }
+    }
+    var update =  [(String , String)]() {
         didSet{
             DispatchQueue.main.async {
                 self.updatesTableView.reloadData()
@@ -28,7 +47,12 @@ class UserDonationsDetailViewController: UIViewController {
         super.viewDidLoad()
         updatesTableView.dataSource = self
         setupPage()
-        print(self.create.donationAmount)
+//      guard let update = create1.update1.sorted { (firstPair, secondPair) -> Bool in
+//            let format = DateFormatter()
+//            guard let firstTimestamp = format.date(from: firstPair.key),
+//                let secondTimestamp = format.date(from: secondPair.key) else {return false}
+//            return firstTimestamp < secondTimestamp
+//        }
     }
     private func setupPage() {
         self.detailLabel.text = create.causeTitle
@@ -45,7 +69,7 @@ class UserDonationsDetailViewController: UIViewController {
 }
 extension UserDonationsDetailViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return updates1.count
+        return update.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,9 +78,9 @@ extension UserDonationsDetailViewController: UITableViewDataSource {
         var cell = updatesTableView.dequeueReusableCell(withIdentifier: "UpdatesCell", for: indexPath as IndexPath)
         cell = UITableViewCell(style: UITableViewCell.CellStyle.subtitle,
                                reuseIdentifier: "UpdatesCell")
-        cell.textLabel?.text = updates1[indexPath.row].updatesTitle
+        cell.textLabel?.text = update[indexPath.row].0
         
-         cell.detailTextLabel?.text = updates1[indexPath.row].updates
+         cell.detailTextLabel?.text = update[indexPath.row].1
         
         return cell
     }
