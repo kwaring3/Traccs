@@ -690,6 +690,19 @@
                     <view key="view" contentMode="scaleToFill" id="cWB-MT-UOD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="meta-chart (1)" translatesAutoresizingMaskIntoConstraints="NO" id="sO2-Nm-oRh">
+                                <rect key="frame" x="20" y="250" width="374" height="330"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Metrics" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1EV-kC-agb">
+                                <rect key="frame" x="69" y="130" width="277" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.54663294549999997" green="0.1032998636" blue="0.062687449160000006" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="aDL-kA-AEe"/>
                     </view>
@@ -697,7 +710,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ERh-Re-edj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5026" y="436"/>
+            <point key="canvasLocation" x="5024.6376811594209" y="435.9375"/>
         </scene>
         <!--Admin Active Causes View Controller-->
         <scene sceneID="QIu-el-UdG">
@@ -1120,6 +1133,7 @@
         <image name="TRACCT" width="360" height="504"/>
         <image name="TRACCTEMPLATE" width="360" height="504"/>
         <image name="meta-chart" width="1200" height="800"/>
+        <image name="meta-chart (1)" width="1200" height="800"/>
         <image name="placeholder-image-2" width="512" height="512"/>
     </resources>
 </document>
